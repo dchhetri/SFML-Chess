@@ -1,0 +1,303 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C4EC942C14BA64E60027B7B7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4EC942B14BA64E60027B7B7 /* main.cpp */; };
+		C4EC942E14BA64E60027B7B7 /* ChessGame.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C4EC942D14BA64E60027B7B7 /* ChessGame.1 */; };
+		C4EC943A14BA64FE0027B7B7 /* SFML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4EC943414BA64FE0027B7B7 /* SFML.framework */; };
+		C4EC943B14BA64FE0027B7B7 /* sfml-window.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4EC943514BA64FE0027B7B7 /* sfml-window.framework */; };
+		C4EC943C14BA64FE0027B7B7 /* sfml-system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4EC943614BA64FE0027B7B7 /* sfml-system.framework */; };
+		C4EC943D14BA64FE0027B7B7 /* sfml-network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4EC943714BA64FE0027B7B7 /* sfml-network.framework */; };
+		C4EC943E14BA64FE0027B7B7 /* sfml-graphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4EC943814BA64FE0027B7B7 /* sfml-graphics.framework */; };
+		C4EC943F14BA64FE0027B7B7 /* sfml-audio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4EC943914BA64FE0027B7B7 /* sfml-audio.framework */; };
+		C4EC944114BA652C0027B7B7 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4EC944014BA652C0027B7B7 /* OpenGL.framework */; };
+		C4EC944D14BA89870027B7B7 /* Utility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4EC944C14BA89870027B7B7 /* Utility.cpp */; };
+		C4EC945014BABF590027B7B7 /* Pawn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4EC944F14BABF590027B7B7 /* Pawn.cpp */; };
+		C4EC945314BAC58A0027B7B7 /* ChessPieceImageManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4EC945214BAC58A0027B7B7 /* ChessPieceImageManager.cpp */; };
+		C4EC945614BB91250027B7B7 /* ChessBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4EC945514BB91250027B7B7 /* ChessBoard.cpp */; };
+		C4EC945B14BCCEE70027B7B7 /* Chess.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4EC945A14BCCEE70027B7B7 /* Chess.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C4EC942514BA64E60027B7B7 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				C4EC942E14BA64E60027B7B7 /* ChessGame.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		C4EC942714BA64E60027B7B7 /* ChessGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ChessGame; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4EC942B14BA64E60027B7B7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		C4EC942D14BA64E60027B7B7 /* ChessGame.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ChessGame.1; sourceTree = "<group>"; };
+		C4EC943414BA64FE0027B7B7 /* SFML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFML.framework; path = ../../../Library/Frameworks/SFML.framework; sourceTree = "<group>"; };
+		C4EC943514BA64FE0027B7B7 /* sfml-window.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-window.framework"; path = "../../../Library/Frameworks/sfml-window.framework"; sourceTree = "<group>"; };
+		C4EC943614BA64FE0027B7B7 /* sfml-system.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-system.framework"; path = "../../../Library/Frameworks/sfml-system.framework"; sourceTree = "<group>"; };
+		C4EC943714BA64FE0027B7B7 /* sfml-network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-network.framework"; path = "../../../Library/Frameworks/sfml-network.framework"; sourceTree = "<group>"; };
+		C4EC943814BA64FE0027B7B7 /* sfml-graphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-graphics.framework"; path = "../../../Library/Frameworks/sfml-graphics.framework"; sourceTree = "<group>"; };
+		C4EC943914BA64FE0027B7B7 /* sfml-audio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-audio.framework"; path = "../../../Library/Frameworks/sfml-audio.framework"; sourceTree = "<group>"; };
+		C4EC944014BA652C0027B7B7 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		C4EC944314BA657C0027B7B7 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
+		C4EC944514BA875F0027B7B7 /* ChessPiece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChessPiece.h; sourceTree = "<group>"; };
+		C4EC944C14BA89870027B7B7 /* Utility.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Utility.cpp; sourceTree = "<group>"; };
+		C4EC944E14BAB9760027B7B7 /* Pawn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pawn.h; sourceTree = "<group>"; };
+		C4EC944F14BABF590027B7B7 /* Pawn.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pawn.cpp; sourceTree = "<group>"; };
+		C4EC945114BAC2900027B7B7 /* ChessPieceImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChessPieceImageManager.h; sourceTree = "<group>"; };
+		C4EC945214BAC58A0027B7B7 /* ChessPieceImageManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChessPieceImageManager.cpp; sourceTree = "<group>"; };
+		C4EC945414BAD20E0027B7B7 /* ChessBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChessBoard.h; sourceTree = "<group>"; };
+		C4EC945514BB91250027B7B7 /* ChessBoard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChessBoard.cpp; sourceTree = "<group>"; };
+		C4EC945814BC15360027B7B7 /* Chess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chess.h; sourceTree = "<group>"; };
+		C4EC945914BC18B10027B7B7 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		C4EC945A14BCCEE70027B7B7 /* Chess.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Chess.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C4EC942414BA64E60027B7B7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4EC944114BA652C0027B7B7 /* OpenGL.framework in Frameworks */,
+				C4EC943A14BA64FE0027B7B7 /* SFML.framework in Frameworks */,
+				C4EC943B14BA64FE0027B7B7 /* sfml-window.framework in Frameworks */,
+				C4EC943C14BA64FE0027B7B7 /* sfml-system.framework in Frameworks */,
+				C4EC943D14BA64FE0027B7B7 /* sfml-network.framework in Frameworks */,
+				C4EC943E14BA64FE0027B7B7 /* sfml-graphics.framework in Frameworks */,
+				C4EC943F14BA64FE0027B7B7 /* sfml-audio.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C4EC941C14BA64E60027B7B7 = {
+			isa = PBXGroup;
+			children = (
+				C4EC944014BA652C0027B7B7 /* OpenGL.framework */,
+				C4EC943414BA64FE0027B7B7 /* SFML.framework */,
+				C4EC943514BA64FE0027B7B7 /* sfml-window.framework */,
+				C4EC943614BA64FE0027B7B7 /* sfml-system.framework */,
+				C4EC943714BA64FE0027B7B7 /* sfml-network.framework */,
+				C4EC943814BA64FE0027B7B7 /* sfml-graphics.framework */,
+				C4EC943914BA64FE0027B7B7 /* sfml-audio.framework */,
+				C4EC942A14BA64E60027B7B7 /* ChessGame */,
+				C4EC942814BA64E60027B7B7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C4EC942814BA64E60027B7B7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C4EC942714BA64E60027B7B7 /* ChessGame */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C4EC942A14BA64E60027B7B7 /* ChessGame */ = {
+			isa = PBXGroup;
+			children = (
+				C4EC944714BA89460027B7B7 /* Implementation */,
+				C4EC944414BA87440027B7B7 /* Headers */,
+				C4EC944214BA65610027B7B7 /* Utils */,
+				C4EC942B14BA64E60027B7B7 /* main.cpp */,
+				C4EC942D14BA64E60027B7B7 /* ChessGame.1 */,
+			);
+			path = ChessGame;
+			sourceTree = "<group>";
+		};
+		C4EC944214BA65610027B7B7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C4EC944C14BA89870027B7B7 /* Utility.cpp */,
+				C4EC944314BA657C0027B7B7 /* Utility.h */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		C4EC944414BA87440027B7B7 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				C4EC944514BA875F0027B7B7 /* ChessPiece.h */,
+				C4EC944E14BAB9760027B7B7 /* Pawn.h */,
+				C4EC945114BAC2900027B7B7 /* ChessPieceImageManager.h */,
+				C4EC945414BAD20E0027B7B7 /* ChessBoard.h */,
+				C4EC945814BC15360027B7B7 /* Chess.h */,
+				C4EC945914BC18B10027B7B7 /* User.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		C4EC944714BA89460027B7B7 /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				C4EC944F14BABF590027B7B7 /* Pawn.cpp */,
+				C4EC945214BAC58A0027B7B7 /* ChessPieceImageManager.cpp */,
+				C4EC945514BB91250027B7B7 /* ChessBoard.cpp */,
+				C4EC945A14BCCEE70027B7B7 /* Chess.cpp */,
+			);
+			name = Implementation;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C4EC942614BA64E60027B7B7 /* ChessGame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4EC943114BA64E60027B7B7 /* Build configuration list for PBXNativeTarget "ChessGame" */;
+			buildPhases = (
+				C4EC942314BA64E60027B7B7 /* Sources */,
+				C4EC942414BA64E60027B7B7 /* Frameworks */,
+				C4EC942514BA64E60027B7B7 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChessGame;
+			productName = ChessGame;
+			productReference = C4EC942714BA64E60027B7B7 /* ChessGame */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C4EC941E14BA64E60027B7B7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "University of Connecticut";
+			};
+			buildConfigurationList = C4EC942114BA64E60027B7B7 /* Build configuration list for PBXProject "ChessGame" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C4EC941C14BA64E60027B7B7;
+			productRefGroup = C4EC942814BA64E60027B7B7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C4EC942614BA64E60027B7B7 /* ChessGame */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C4EC942314BA64E60027B7B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4EC942C14BA64E60027B7B7 /* main.cpp in Sources */,
+				C4EC944D14BA89870027B7B7 /* Utility.cpp in Sources */,
+				C4EC945014BABF590027B7B7 /* Pawn.cpp in Sources */,
+				C4EC945314BAC58A0027B7B7 /* ChessPieceImageManager.cpp in Sources */,
+				C4EC945614BB91250027B7B7 /* ChessBoard.cpp in Sources */,
+				C4EC945B14BCCEE70027B7B7 /* Chess.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C4EC942F14BA64E60027B7B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C4EC943014BA64E60027B7B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C4EC943214BA64E60027B7B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Library/Frameworks\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C4EC943314BA64E60027B7B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Library/Frameworks\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C4EC942114BA64E60027B7B7 /* Build configuration list for PBXProject "ChessGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4EC942F14BA64E60027B7B7 /* Debug */,
+				C4EC943014BA64E60027B7B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4EC943114BA64E60027B7B7 /* Build configuration list for PBXNativeTarget "ChessGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4EC943214BA64E60027B7B7 /* Debug */,
+				C4EC943314BA64E60027B7B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C4EC941E14BA64E60027B7B7 /* Project object */;
+}
