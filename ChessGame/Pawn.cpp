@@ -43,23 +43,16 @@ namespace ChessGame {
             
             //check within bounds on left-diagnoal
             if(slotPos.y + 1 < ChessBoard::BOARD_WIDTH){
-                //if not occupied highlight it
-                if(!gameBoard.isOccupied(rowToMoveTo, slotPos.y + 1)){
-                    gameBoard.makeHighlighted(rowToMoveTo, slotPos.y + 1);
-                }
-                //else if can eat opponent piece highlight the square
-                else if(gameBoard.getSlot(rowToMoveTo, slotPos.y + 1).piece->getPieceID() != m_pieceId){
+                //if occupied highlight it to show that we can eat it
+                if(gameBoard.isOccupied(rowToMoveTo, slotPos.y + 1) && 
+                        gameBoard.getSlot(rowToMoveTo, slotPos.y + 1).piece->getPieceID() != m_pieceId){
                     gameBoard.makeHighlighted(rowToMoveTo, slotPos.y + 1);
                 }
             }
             //check within bounds on right diagnol
             if(slotPos.y - 1 >= 0){ 
-                //if not occupied highlight it
-                if(!gameBoard.isOccupied(slotPos.x + m_direction, slotPos.y - 1)){
-                    gameBoard.makeHighlighted(rowToMoveTo, slotPos.y - 1);
-                }
-                //else if can eat opponent piece highlight the square
-                else if(gameBoard.getSlot(rowToMoveTo, slotPos.y - 1).piece->getPieceID() != m_pieceId){
+                if(gameBoard.isOccupied(slotPos.x + m_direction, slotPos.y - 1) && 
+                        gameBoard.getSlot(rowToMoveTo, slotPos.y - 1).piece->getPieceID() != m_pieceId){
                     gameBoard.makeHighlighted(rowToMoveTo, slotPos.y - 1);
                 }
             }
