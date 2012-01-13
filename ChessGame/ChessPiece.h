@@ -23,6 +23,8 @@ namespace ChessGame
     {
     public:
         enum PieceType{PAWN, KNIGHT, BISHOP, ROOK, QUEEN, KING};
+        enum PieceDirection{ UP = 1 , DOWN  = -1};
+        enum PieceId{ WHITE_PIECE_ID, BLACK_PIECE_ID };
     public:
         
         //draws the chess piece
@@ -32,7 +34,7 @@ namespace ChessGame
         virtual void animateTo(const sf::Vector2f& offsetPosition) = 0;
         
         //shows possible move location of where the piece could move to
-        virtual void showPossibleMoveLocation(ChessBoard& gameBoard) = 0;
+        virtual void showPossibleMoveLocation(ChessBoard& gameBoard)const = 0;
         
         //returns the types chess piece
         PieceType pieceType()const{ return m_pieceType; }
@@ -47,12 +49,29 @@ namespace ChessGame
         void setPosition(const sf::Vector2f& newPosition){
             m_sprite.SetPosition(newPosition);
         }
-        
+        //set direction
+        void setPieceDirection(const PieceDirection& dir){ 
+            m_direction = dir; 
+        }
+        //get current move direction
+        PieceDirection getPieceDirection()const{ 
+            return m_direction;
+        }
+        //set the current piece id
+        void setPieceID(const PieceId& id){
+            m_pieceId = id;
+        }
+        //get the current piece id
+        PieceId getPieceID()const{
+            return m_pieceId;
+        }
         virtual ~IChessPiece(){}
         
     protected:
         PieceType       m_pieceType; //type of chess piece
         sf::Sprite      m_sprite; // chess sprite 
+        PieceDirection  m_direction;
+        PieceId         m_pieceId;
     };
 }
 

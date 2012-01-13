@@ -45,9 +45,11 @@ namespace ChessGame
     
     
     //move piece to new location
+    //if the new slot contains piece, it will get devoured and eaten    
     void ChessBoard::moveChessPiece(BoardSlot& oldSlot, BoardSlot& newSlot){
         //clear highlighted Entries        
         clearHighlightedEntries();
+        
         
        //update newSlot piece
         newSlot.piece = oldSlot.piece;
@@ -143,6 +145,8 @@ namespace ChessGame
                 m_board[i][j].piece->getSprite().Move(sf::Vector2f(offset,offset));
                 m_board[i][j].piece->getSprite().Resize(SPRITE_SIZE,SPRITE_SIZE);
                 m_board[i][j].status = OCCUPIED;
+                m_board[i][j].piece->setPieceDirection(IChessPiece::UP);
+                m_board[i][j].piece->setPieceID(IChessPiece::WHITE_PIECE_ID);
                 
                 //set piece and proper location
                 m_board[i + penultimateRowIndex][j].piece = set2[transformedIndex];
@@ -150,6 +154,8 @@ namespace ChessGame
                 m_board[i + penultimateRowIndex][j].piece->getSprite().Resize(SPRITE_SIZE,SPRITE_SIZE);;
                 m_board[i + penultimateRowIndex][j].piece->getSprite().Move(sf::Vector2f(offset,offset));
                 m_board[i + penultimateRowIndex][j].status = OCCUPIED;
+                m_board[i + penultimateRowIndex][j].piece->setPieceDirection(IChessPiece::DOWN);
+                m_board[i + penultimateRowIndex][j].piece->setPieceID(IChessPiece::BLACK_PIECE_ID);
             }
         }
         

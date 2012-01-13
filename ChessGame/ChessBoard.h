@@ -60,6 +60,7 @@ namespace ChessGame
         void draw(sf::RenderWindow& canvas)const;
 
         //move the piece in oldSlot to the newSlot
+        //if the new slot contains piece, it will get devoured and eaten
         void moveChessPiece(BoardSlot& oldSlot, BoardSlot& newSlot);
         
         //returns the constant slot in position (x,y)

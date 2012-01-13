@@ -30,7 +30,7 @@ namespace ChessGame
         void animateTo(const sf::Vector2f& offsetPosition) ;
         
         //shows possible move location of where the piece could move to
-        void showPossibleMoveLocation(ChessBoard& gameBoard);
+        void showPossibleMoveLocation(ChessBoard& gameBoard)const;
     };
 }
 #endif
