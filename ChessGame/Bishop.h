@@ -28,6 +28,8 @@ namespace ChessGame
         
         //shows possible move location of where the piece could move to
         void showPossibleMoveLocation(ChessBoard& gameBoard)const;
+    private:
+        
     };
     
 }

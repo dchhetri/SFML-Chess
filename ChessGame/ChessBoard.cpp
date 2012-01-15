@@ -76,7 +76,12 @@ namespace ChessGame
         //clear highlighted list and set original color
         for(int i = 0; i < m_highlightedList.size(); ++i){
             sf::Vector2i pos = m_highlightedList[i];
-            m_board[pos.x][pos.y].status = EMPTY;
+            //return to previous state
+            if(m_board[pos.x][pos.y].piece.get() == NULL){
+                m_board[pos.x][pos.y].status = EMPTY;
+            }
+            else m_board[pos.x][pos.y].status = OCCUPIED;
+            
             if( (pos.x + pos.y ) % 2 == 0) 
                 m_board[pos.x][pos.y].rect.SetColor(sf::Color(111,111,111));
             else m_board[pos.x][pos.y].rect.SetColor(sf::Color(150,150,150));
