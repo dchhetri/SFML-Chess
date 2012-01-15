@@ -98,7 +98,10 @@ namespace ChessGame
     bool ChessBoard::isOccupied(int row, int col)const{
         return m_board[row][col].status == OCCUPIED;
     }
-    
+    //returns true if slot is occupied with enemey
+    bool ChessBoard::isOccupiedWithEnemy(int row, int col,const detail::IChessPieceEnums::PieceId& pieceId){
+        return  isOccupied(row, col) && m_board[row][col].piece->getPieceID() != pieceId;
+    }
     //repositions the pieces to its initial position
     void ChessBoard::reset(){
         populate(m_whitePieceSet, m_blackPieceSet);

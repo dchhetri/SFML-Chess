@@ -44,15 +44,15 @@ namespace ChessGame {
             //check within bounds on left-diagnoal
             if(slotPos.y + 1 < ChessBoard::BOARD_WIDTH){
                 //if occupied highlight it to show that we can eat it
-                if(gameBoard.isOccupied(rowToMoveTo, slotPos.y + 1) && 
-                        gameBoard.getSlot(rowToMoveTo, slotPos.y + 1).piece->getPieceID() != m_pieceId){
+                if( gameBoard.isOccupiedWithEnemy(rowToMoveTo, slotPos.y + 1,m_pieceId))
+                {
                     gameBoard.makeHighlighted(rowToMoveTo, slotPos.y + 1);
                 }
             }
             //check within bounds on right diagnol
             if(slotPos.y - 1 >= 0){ 
-                if(gameBoard.isOccupied(slotPos.x + m_direction, slotPos.y - 1) && 
-                        gameBoard.getSlot(rowToMoveTo, slotPos.y - 1).piece->getPieceID() != m_pieceId){
+                if( gameBoard.isOccupiedWithEnemy(rowToMoveTo, slotPos.y - 1,m_pieceId))
+                {
                     gameBoard.makeHighlighted(rowToMoveTo, slotPos.y - 1);
                 }
             }

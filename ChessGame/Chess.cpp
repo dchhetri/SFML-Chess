@@ -8,6 +8,8 @@
 
 #include "Chess.h"
 #include "Pawn.h"
+#include "Knight.h"
+
 #include <iostream>
 using namespace std;
 
@@ -66,6 +68,12 @@ namespace ChessGame
             whitePieces[i] = boost::shared_ptr<IChessPiece>(new Pawn());
             blackPieces[i] = boost::shared_ptr<IChessPiece>(new Pawn());
         }
+        whitePieces[1] = boost::shared_ptr<IChessPiece>(new Knight());
+        whitePieces[6] = boost::shared_ptr<IChessPiece>(new Knight());
+        
+        blackPieces[1 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Knight());
+        blackPieces[6 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Knight());
+        
         
         m_board.populate(whitePieces, blackPieces);
     }

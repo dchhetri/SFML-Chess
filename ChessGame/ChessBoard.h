@@ -14,12 +14,13 @@
 #include <boost/shared_ptr.hpp>
 #include <boost/array.hpp>
 #include "ChessPiece.h"
+#include "details.h"
 #include <vector>
 
 
 namespace ChessGame 
 {
- 
+    
     class IChessPiece;
     
     //Defines a class for chessboard
@@ -71,6 +72,9 @@ namespace ChessGame
         
         //returns true if current slot is occupied
         bool isOccupied(int row, int col)const;
+        
+        //returns true if the slot is occupied with enemy
+        bool isOccupiedWithEnemy(int row, int col,const detail::IChessPieceEnums::PieceId& pieceId);
         
         //repositions the pieces to its initial position
         void reset();

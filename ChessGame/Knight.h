@@ -1,24 +1,24 @@
 //
-//  Pawn.h
+//  Knight.h
 //  ChessGame
 //
-//  Created by Dibash Chhetri on 1/9/12.
+//  Created by Dibash Chhetri on 1/14/12.
 //  Copyright (c) 2012 University of Connecticut. All rights reserved.
 //
 
-#ifndef ChessGame_Pawn_h
-#define ChessGame_Pawn_h
+#ifndef ChessGame_Knight_h
+#define ChessGame_Knight_h
 
-#include "ChessBoard.h"
 #include "ChessPiece.h"
+#include "ChessBoard.h"
 
-namespace ChessGame
+namespace ChessGame 
 {
-    class Pawn : public IChessPiece
+    
+    class Knight : public IChessPiece
     {
-        
     public:
-        Pawn();
+        Knight();
         
         //draws the chess piece
         void draw(sf::RenderWindow&)const ;
@@ -29,5 +29,6 @@ namespace ChessGame
         //shows possible move location of where the piece could move to
         void showPossibleMoveLocation(ChessBoard& gameBoard)const;
     };
+
 }
 #endif

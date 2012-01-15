@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C44AB24B14C2943500361CC2 /* Bishop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C44AB24A14C2943500361CC2 /* Bishop.cpp */; };
 		C4EC942C14BA64E60027B7B7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4EC942B14BA64E60027B7B7 /* main.cpp */; };
 		C4EC942E14BA64E60027B7B7 /* ChessGame.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C4EC942D14BA64E60027B7B7 /* ChessGame.1 */; };
 		C4EC943A14BA64FE0027B7B7 /* SFML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4EC943414BA64FE0027B7B7 /* SFML.framework */; };
@@ -21,6 +22,7 @@
 		C4EC945314BAC58A0027B7B7 /* ChessPieceImageManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4EC945214BAC58A0027B7B7 /* ChessPieceImageManager.cpp */; };
 		C4EC945614BB91250027B7B7 /* ChessBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4EC945514BB91250027B7B7 /* ChessBoard.cpp */; };
 		C4EC945B14BCCEE70027B7B7 /* Chess.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4EC945A14BCCEE70027B7B7 /* Chess.cpp */; };
+		C4EC946314C24D030027B7B7 /* Knight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4EC946214C24D030027B7B7 /* Knight.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +39,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C44AB24314C26FE200361CC2 /* details.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = details.h; sourceTree = "<group>"; };
+		C44AB24914C293C900361CC2 /* Bishop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bishop.h; sourceTree = "<group>"; };
+		C44AB24A14C2943500361CC2 /* Bishop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bishop.cpp; sourceTree = "<group>"; };
 		C4EC942714BA64E60027B7B7 /* ChessGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ChessGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4EC942B14BA64E60027B7B7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C4EC942D14BA64E60027B7B7 /* ChessGame.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ChessGame.1; sourceTree = "<group>"; };
@@ -59,6 +64,8 @@
 		C4EC945814BC15360027B7B7 /* Chess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chess.h; sourceTree = "<group>"; };
 		C4EC945914BC18B10027B7B7 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		C4EC945A14BCCEE70027B7B7 /* Chess.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Chess.cpp; sourceTree = "<group>"; };
+		C4EC946014C24CB40027B7B7 /* Knight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Knight.h; sourceTree = "<group>"; };
+		C4EC946214C24D030027B7B7 /* Knight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Knight.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +139,9 @@
 				C4EC945414BAD20E0027B7B7 /* ChessBoard.h */,
 				C4EC945814BC15360027B7B7 /* Chess.h */,
 				C4EC945914BC18B10027B7B7 /* User.h */,
+				C4EC946014C24CB40027B7B7 /* Knight.h */,
+				C44AB24314C26FE200361CC2 /* details.h */,
+				C44AB24914C293C900361CC2 /* Bishop.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -143,6 +153,8 @@
 				C4EC945214BAC58A0027B7B7 /* ChessPieceImageManager.cpp */,
 				C4EC945514BB91250027B7B7 /* ChessBoard.cpp */,
 				C4EC945A14BCCEE70027B7B7 /* Chess.cpp */,
+				C4EC946214C24D030027B7B7 /* Knight.cpp */,
+				C44AB24A14C2943500361CC2 /* Bishop.cpp */,
 			);
 			name = Implementation;
 			sourceTree = "<group>";
@@ -204,6 +216,8 @@
 				C4EC945314BAC58A0027B7B7 /* ChessPieceImageManager.cpp in Sources */,
 				C4EC945614BB91250027B7B7 /* ChessBoard.cpp in Sources */,
 				C4EC945B14BCCEE70027B7B7 /* Chess.cpp in Sources */,
+				C4EC946314C24D030027B7B7 /* Knight.cpp in Sources */,
+				C44AB24B14C2943500361CC2 /* Bishop.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +310,7 @@
 				C4EC943314BA64E60027B7B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

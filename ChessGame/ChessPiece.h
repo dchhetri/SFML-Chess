@@ -13,20 +13,19 @@
 #include <SFML/Graphics.hpp>
 
 #include "ChessBoard.h"
+#include "details.h"
 
 namespace ChessGame 
 {
+    
     class ChessBoard;
     
+   
+    
     //represents an abstract chess piece interface
-    class IChessPiece
+    class IChessPiece : public detail::IChessPieceEnums
     {
-    public:
-        enum PieceType{PAWN, KNIGHT, BISHOP, ROOK, QUEEN, KING};
-        enum PieceDirection{ UP = 1 , DOWN  = -1};
-        enum PieceId{ WHITE_PIECE_ID, BLACK_PIECE_ID };
-    public:
-        
+    public:   
         //draws the chess piece
         virtual void draw(sf::RenderWindow& canvas)const = 0;
         
