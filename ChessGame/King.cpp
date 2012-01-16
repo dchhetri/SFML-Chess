@@ -37,18 +37,12 @@ namespace ChessGame
         
         //check possible moves in previous row if any 
         if(tmp.x >= 0)
-        {
-            
+        {   
             for(int i = 0; i < 3; ++i, ++tmp.y )
             {
                 if(tmp.y >= 0 && tmp.y < ChessBoard::BOARD_WIDTH){
                     //if not occupied highlight it
-                    if(!gameBoard.isOccupied(tmp.x, tmp.y)){
-                        gameBoard.makeHighlighted(tmp.x, tmp.y);
-                    }//else if occupied with enemy highlight it
-                    else if(gameBoard.isOccupiedWithEnemy(tmp.x, tmp.y, m_pieceId)){
-                        gameBoard.makeHighlighted(tmp.x, tmp.y);
-                    }
+                     _tryToHighlight(gameBoard, tmp);
                 }
             }
         }
@@ -59,34 +53,21 @@ namespace ChessGame
             for(int i = 0; i < 3; ++i, ++tmp.y )
             {
                 if(tmp.y >= 0 && tmp.y < ChessBoard::BOARD_WIDTH){
-                    //if not occupied highlight it
-                    if(!gameBoard.isOccupied(tmp.x, tmp.y)){
-                        gameBoard.makeHighlighted(tmp.x, tmp.y);
-                    }//else if occupied with enemy highlight it
-                    else if(gameBoard.isOccupiedWithEnemy(tmp.x, tmp.y, m_pieceId)){
-                        gameBoard.makeHighlighted(tmp.x, tmp.y);
-                    }
+                    _tryToHighlight(gameBoard, tmp);
                 }
             }
         }
-        //check left and right slots
+        //check left slot
         tmp = Vector2i(slotPos.x, slotPos.y - 1);
-        if(tmp.y >= 0){
-            if(!gameBoard.isOccupied(tmp.x, tmp.y)){
-                gameBoard.makeHighlighted(tmp.x, tmp.y);
-            }
-            else if(gameBoard.isOccupiedWithEnemy(tmp.x, tmp.y, m_pieceId)){
-                gameBoard.makeHighlighted(tmp.x, tmp.y);
-            }
+        if(tmp.y >= 0)
+        {
+              _tryToHighlight(gameBoard, tmp);
         }
+        //check right slot
         tmp = Vector2i(slotPos.x, slotPos.y + 1);
-        if(tmp.y < ChessBoard::BOARD_WIDTH){
-            if(!gameBoard.isOccupied(tmp.x, tmp.y)){
-                gameBoard.makeHighlighted(tmp.x, tmp.y);
-            }
-            else if(gameBoard.isOccupiedWithEnemy(tmp.x, tmp.y, m_pieceId)){
-                gameBoard.makeHighlighted(tmp.x, tmp.y);
-            }
+        if(tmp.y < ChessBoard::BOARD_WIDTH)
+        {
+              _tryToHighlight(gameBoard, tmp);
         }
         
     }

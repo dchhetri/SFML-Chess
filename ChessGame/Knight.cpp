@@ -31,71 +31,40 @@ namespace ChessGame {
         Vector2i slotPos = gameBoard.convertToBoardIndex(spritePos.x,spritePos.y);
         
         //check if the possible move position are valid
-
+        
         //front mid left
-        if(slotPos.x + 1 < ChessBoard::BOARD_HEIGHT && slotPos.y - 2 >= 0)
-        {
-            if(!gameBoard.isOccupied(slotPos.x + 1, slotPos.y - 2) ||
-                gameBoard.isOccupiedWithEnemy(slotPos.x + 1, slotPos.y - 2, m_pieceId))
-            {
-                gameBoard.makeHighlighted(slotPos.x + 1, slotPos.y - 2);
-            }
+        if(slotPos.x + 1 < ChessBoard::BOARD_HEIGHT && slotPos.y - 2 >= 0){
+            _tryToHighlight(gameBoard, sf::Vector2i(slotPos.x + 1, slotPos.y - 2));
+            
         }
         //front mid right
         if(slotPos.x + 1 < ChessBoard::BOARD_HEIGHT && slotPos.y + 2 < ChessBoard::BOARD_WIDTH){
-            if(!gameBoard.isOccupied(slotPos.x + 1, slotPos.y + 2) ||
-                gameBoard.isOccupiedWithEnemy(slotPos.x + 1, slotPos.y + 2, m_pieceId))
-            {
-                    gameBoard.makeHighlighted(slotPos.x + 1, slotPos.y + 2);
-            }
+              _tryToHighlight(gameBoard, Vector2i(slotPos.x + 1, slotPos.y + 2));
         }
         //back mid left
         if(slotPos.x - 1 >= 0 &&  slotPos.y - 2 >= 0){
-            if(!gameBoard.isOccupied(slotPos.x - 1, slotPos.y - 2) ||
-               gameBoard.isOccupiedWithEnemy(slotPos.x - 1, slotPos.y - 2, m_pieceId))
-            {
-                gameBoard.makeHighlighted(slotPos.x - 1, slotPos.y - 2);
-            }
+            _tryToHighlight(gameBoard, Vector2i(slotPos.x - 1, slotPos.y - 2));
         }
         //back mid right
         if(slotPos.x - 1 >= 0 && slotPos.y + 2 < ChessBoard::BOARD_WIDTH){
-            if(!gameBoard.isOccupied(slotPos.x - 1, slotPos.y + 2) ||
-               gameBoard.isOccupiedWithEnemy(slotPos.x - 1, slotPos.y + 2, m_pieceId))
-            {
-                gameBoard.makeHighlighted(slotPos.x - 1, slotPos.y + 2);
-            }
+            _tryToHighlight(gameBoard, Vector2i(slotPos.x - 1, slotPos.y + 2));
         }
         //front top left
         if(slotPos.x + 2 < ChessBoard::BOARD_HEIGHT && slotPos.y - 1 >= 0){
-            if(!gameBoard.isOccupied(slotPos.x + 2, slotPos.y - 1) ||
-                gameBoard.isOccupiedWithEnemy(slotPos.x + 2, slotPos.y - 1, m_pieceId))
-            {
-                gameBoard.makeHighlighted(slotPos.x + 2, slotPos.y - 1);
-            }
+            _tryToHighlight(gameBoard, Vector2i(slotPos.x + 2, slotPos.y - 1));
+            
         }
         //front top right
         if(slotPos.x + 2 < ChessBoard::BOARD_WIDTH && slotPos.y + 1 < ChessBoard::BOARD_WIDTH ){
-            if(!gameBoard.isOccupied(slotPos.x + 2, slotPos.y + 1) ||
-               gameBoard.isOccupiedWithEnemy(slotPos.x + 2, slotPos.y + 1, m_pieceId))
-            {
-                gameBoard.makeHighlighted(slotPos.x + 2, slotPos.y + 1);
-            }
+            _tryToHighlight(gameBoard, Vector2i(slotPos.x + 2, slotPos.y + 1));
         }
         //back bottom left
         if(slotPos.x - 2 >= 0 && slotPos.y - 1 >= 0){
-            if(!gameBoard.isOccupied(slotPos.x - 2, slotPos.y - 1) ||
-               gameBoard.isOccupiedWithEnemy(slotPos.x - 2, slotPos.y - 1, m_pieceId))
-            {
-                gameBoard.makeHighlighted(slotPos.x - 2, slotPos.y - 1);
-            }
+            _tryToHighlight(gameBoard, Vector2i(slotPos.x - 2, slotPos.y - 1));
         }
         //back bottom right
         if(slotPos.x - 2 >= 0 && slotPos.y + 1 < ChessBoard::BOARD_WIDTH){
-            if(!gameBoard.isOccupied(slotPos.x - 2, slotPos.y + 1) ||
-               gameBoard.isOccupiedWithEnemy(slotPos.x - 2, slotPos.y + 1, m_pieceId))
-            {
-                gameBoard.makeHighlighted(slotPos.x - 2, slotPos.y + 1);
-            }
+            _tryToHighlight(gameBoard, Vector2i(slotPos.x - 2, slotPos.y + 1));
         }
     }
     

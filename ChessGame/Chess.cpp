@@ -67,28 +67,30 @@ namespace ChessGame
         PieceSet whitePieces = m_whiteUser.second;
         PieceSet blackPieces = m_blackUser.second;
 
-        //for now make all pawns
-        for(int i = 0; i < whitePieces.size(); ++i){
-            whitePieces[i] = boost::shared_ptr<IChessPiece>(new Pawn());
+        //insert pawn
+        for(int i = 0; i < 8; ++i){
+            whitePieces[i + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Pawn());
             blackPieces[i] = boost::shared_ptr<IChessPiece>(new Pawn());
         }
+        //insert other piece manually
         whitePieces[0] = boost::shared_ptr<IChessPiece>(new Rook());
-        whitePieces[7] = boost::shared_ptr<IChessPiece>(new Rook());
         whitePieces[1] = boost::shared_ptr<IChessPiece>(new Knight());
-        whitePieces[6] = boost::shared_ptr<IChessPiece>(new Knight());
         whitePieces[2] = boost::shared_ptr<IChessPiece>(new Bishop());
-        whitePieces[5] = boost::shared_ptr<IChessPiece>(new Bishop());
-        whitePieces[4] = boost::shared_ptr<IChessPiece>(new Queen());
         whitePieces[3] = boost::shared_ptr<IChessPiece>(new King());
+        whitePieces[4] = boost::shared_ptr<IChessPiece>(new Queen());
+        whitePieces[5] = boost::shared_ptr<IChessPiece>(new Bishop());
+        whitePieces[6] = boost::shared_ptr<IChessPiece>(new Knight());
+        whitePieces[7] = boost::shared_ptr<IChessPiece>(new Rook());
+        
         
         blackPieces[0 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Rook());
-        blackPieces[7 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Rook());
         blackPieces[1 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Knight());
-        blackPieces[6 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Knight());
         blackPieces[2 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Bishop());
-        blackPieces[5 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Bishop());
-        blackPieces[4 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Queen());
         blackPieces[3 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new King());
+        blackPieces[4 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Queen());
+        blackPieces[5 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Bishop());
+        blackPieces[6 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Knight());
+        blackPieces[7 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Rook());
         
         m_board.populate(whitePieces, blackPieces);
     }

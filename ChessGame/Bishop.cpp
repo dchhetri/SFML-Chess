@@ -34,65 +34,36 @@ namespace ChessGame
         Vector2i tmp(slotPos.x - 1, slotPos.y - 1);
         //check top left-diagnol if available
         while(tmp.x >= 0 && tmp.y >= 0)
-        {
-            //if not occupied, highlight it
-            if(!gameBoard.isOccupied(tmp.x, tmp.y)){
-                gameBoard.makeHighlighted(tmp.x, tmp.y);
-                --tmp.x;
-                --tmp.y;
+        {   
+            if(_tryToHighlight(gameBoard, tmp) == EMPTY_SLOT_HIGHLIGHTED){ 
+                tmp += Vector2i(-1,-1); 
             }
-            //else if occupied, check if its with enemy and if so highlight it and exit out loop
-            else if(gameBoard.isOccupiedWithEnemy(tmp.x, tmp.y, m_pieceId)){
-                gameBoard.makeHighlighted(tmp.x, tmp.y);
-                break;
-            }
-            //else ouccupied with own piece type
-            else break;
+            else break; 
+            
         }
         //check top right-diagnol
         tmp = Vector2i(slotPos.x - 1, slotPos.y + 1);
         while(tmp.x >= 0 && tmp.y < ChessBoard::BOARD_WIDTH){
-            if(!gameBoard.isOccupied(tmp.x, tmp.y)){
-                gameBoard.makeHighlighted(tmp.x, tmp.y);
-                --tmp.x;
-                ++tmp.y;
-            }
-            else if(gameBoard.isOccupiedWithEnemy(tmp.x, tmp.y, m_pieceId)){
-                gameBoard.makeHighlighted(tmp.x, tmp.y);
-                break;
+            if(_tryToHighlight(gameBoard, tmp) == EMPTY_SLOT_HIGHLIGHTED){ 
+                tmp += Vector2i(-1,1); 
             }
             else break;
-            
         }
         //check bottom left-diagnol
         tmp = Vector2i(slotPos.x + 1, slotPos.y - 1);
         while(tmp.x < ChessBoard::BOARD_HEIGHT && tmp.y >= 0){
-            if(!gameBoard.isOccupied(tmp.x, tmp.y)){
-                gameBoard.makeHighlighted(tmp.x, tmp.y);
-                ++tmp.x;
-                --tmp.y;
-            }
-            else if(gameBoard.isOccupiedWithEnemy(tmp.x, tmp.y, m_pieceId)){
-                gameBoard.makeHighlighted(tmp.x, tmp.y);
-                break;
+            if(_tryToHighlight(gameBoard, tmp) == EMPTY_SLOT_HIGHLIGHTED){ 
+                tmp += Vector2i(1,-1); 
             }
             else break;
-            
         }
         //check bottom right-diagnol
         tmp = Vector2i(slotPos.x + 1, slotPos.y + 1);
         while(tmp.x < ChessBoard::BOARD_HEIGHT && tmp.y < ChessBoard::BOARD_HEIGHT){
-            if(!gameBoard.isOccupied(tmp.x, tmp.y)){
-                gameBoard.makeHighlighted(tmp.x, tmp.y);
-                ++tmp.x;
-                ++tmp.y;
-            }
-            else if(gameBoard.isOccupiedWithEnemy(tmp.x, tmp.y, m_pieceId)){
-                gameBoard.makeHighlighted(tmp.x, tmp.y);
-                break;
+            if(_tryToHighlight(gameBoard, tmp) == EMPTY_SLOT_HIGHLIGHTED){ 
+                tmp += Vector2i(1,1); 
             }
             else break;
-            
         }
     }
 }

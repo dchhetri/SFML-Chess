@@ -10,6 +10,7 @@
 #define ChessGame_ChessPiece_h
 
 #include <SFML/System/Vector3.hpp>
+#include <SFML/System/Vector2.hpp>
 #include <SFML/Graphics.hpp>
 
 #include "ChessBoard.h"
@@ -36,34 +37,29 @@ namespace ChessGame
         virtual void showPossibleMoveLocation(ChessBoard& gameBoard)const = 0;
         
         //returns the types chess piece
-        PieceType pieceType()const{ return m_pieceType; }
+        detail::IChessPieceEnums::PieceType pieceType()const;
         
         //returns constant sprite object
-        const sf::Sprite& getSprite()const{ return m_sprite; }
+        const sf::Sprite& getSprite()const;
         
         //returns the sprite object
-        sf::Sprite& getSprite(){ return m_sprite; }
+        sf::Sprite& getSprite();
         
         //sets new position
-        void setPosition(const sf::Vector2f& newPosition){
-            m_sprite.SetPosition(newPosition);
-        }
+        void setPosition(const sf::Vector2f& newPosition);
+        
         //set direction
-        void setPieceDirection(const PieceDirection& dir){ 
-            m_direction = dir; 
-        }
+        void setPieceDirection(const detail::IChessPieceEnums::PieceDirection& dir);
+        
         //get current move direction
-        PieceDirection getPieceDirection()const{ 
-            return m_direction;
-        }
+        PieceDirection getPieceDirection()const;
+        
         //set the current piece id
-        void setPieceID(const PieceId& id){
-            m_pieceId = id;
-        }
+        void setPieceID(const detail::IChessPieceEnums::PieceId& id);
+        
         //get the current piece id
-        PieceId getPieceID()const{
-            return m_pieceId;
-        }
+        detail::IChessPieceEnums::PieceId getPieceID()const;
+        
         virtual ~IChessPiece(){}
         
     protected:
@@ -71,6 +67,11 @@ namespace ChessGame
         sf::Sprite      m_sprite; // chess sprite 
         PieceDirection  m_direction;
         PieceId         m_pieceId;
+        
+    protected:
+        enum HighlightedStatus{ EMPTY_SLOT_HIGHLIGHTED, ENEMY_SLOT_HIGHLIGHTED, NOT_HIGHLIGHTED};
+        //trys to highlight the the slot if not occupied or occupied with enemy
+        HighlightedStatus _tryToHighlight(ChessBoard& board,const sf::Vector2i& index)const;
     };
 }
 

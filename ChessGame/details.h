@@ -22,6 +22,7 @@ namespace ChessGame
             enum PieceDirection{ UP = 1 , DOWN  = -1};
             enum PieceId{ WHITE_PIECE_ID, BLACK_PIECE_ID };
         };
+        
     };
 
 }
