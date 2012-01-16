@@ -36,6 +36,12 @@ namespace ChessGame
         //returns the bishop image
         static const sf::Image& getBishopImage();
         
+        //returns the rook image
+        static const sf::Image& getRookImage();
+        
+        //returns the queen image
+        static const sf::Image& getQueenImage();
+        
         //returns the background image for the game
         static const sf::Image& getChessGameBackgroundImage();
     };

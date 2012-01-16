@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C44AB24B14C2943500361CC2 /* Bishop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C44AB24A14C2943500361CC2 /* Bishop.cpp */; };
+		C44AB25314C2B32500361CC2 /* Rook.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C44AB25214C2B32500361CC2 /* Rook.cpp */; };
+		C44AB25614C3E20E00361CC2 /* Queen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C44AB25514C3E20E00361CC2 /* Queen.cpp */; };
 		C4EC942C14BA64E60027B7B7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4EC942B14BA64E60027B7B7 /* main.cpp */; };
 		C4EC942E14BA64E60027B7B7 /* ChessGame.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C4EC942D14BA64E60027B7B7 /* ChessGame.1 */; };
 		C4EC943A14BA64FE0027B7B7 /* SFML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4EC943414BA64FE0027B7B7 /* SFML.framework */; };
@@ -42,6 +44,10 @@
 		C44AB24314C26FE200361CC2 /* details.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = details.h; sourceTree = "<group>"; };
 		C44AB24914C293C900361CC2 /* Bishop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bishop.h; sourceTree = "<group>"; };
 		C44AB24A14C2943500361CC2 /* Bishop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bishop.cpp; sourceTree = "<group>"; };
+		C44AB25014C2B2AA00361CC2 /* Rook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rook.h; sourceTree = "<group>"; };
+		C44AB25214C2B32500361CC2 /* Rook.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Rook.cpp; sourceTree = "<group>"; };
+		C44AB25414C3958700361CC2 /* Queen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queen.h; sourceTree = "<group>"; };
+		C44AB25514C3E20E00361CC2 /* Queen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Queen.cpp; sourceTree = "<group>"; };
 		C4EC942714BA64E60027B7B7 /* ChessGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ChessGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4EC942B14BA64E60027B7B7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C4EC942D14BA64E60027B7B7 /* ChessGame.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ChessGame.1; sourceTree = "<group>"; };
@@ -142,6 +148,8 @@
 				C4EC946014C24CB40027B7B7 /* Knight.h */,
 				C44AB24314C26FE200361CC2 /* details.h */,
 				C44AB24914C293C900361CC2 /* Bishop.h */,
+				C44AB25014C2B2AA00361CC2 /* Rook.h */,
+				C44AB25414C3958700361CC2 /* Queen.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -155,6 +163,8 @@
 				C4EC945A14BCCEE70027B7B7 /* Chess.cpp */,
 				C4EC946214C24D030027B7B7 /* Knight.cpp */,
 				C44AB24A14C2943500361CC2 /* Bishop.cpp */,
+				C44AB25214C2B32500361CC2 /* Rook.cpp */,
+				C44AB25514C3E20E00361CC2 /* Queen.cpp */,
 			);
 			name = Implementation;
 			sourceTree = "<group>";
@@ -218,6 +228,8 @@
 				C4EC945B14BCCEE70027B7B7 /* Chess.cpp in Sources */,
 				C4EC946314C24D030027B7B7 /* Knight.cpp in Sources */,
 				C44AB24B14C2943500361CC2 /* Bishop.cpp in Sources */,
+				C44AB25314C2B32500361CC2 /* Rook.cpp in Sources */,
+				C44AB25614C3E20E00361CC2 /* Queen.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

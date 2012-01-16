@@ -9,11 +9,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "ChessGame/Chess.cpp"
-         timestampString = "348278797.734064"
+         timestampString = "348297472.012155"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "38"
-         endingLineNumber = "38"
+         startingLineNumber = "39"
+         endingLineNumber = "39"
          landmarkName = "Chess::onMouseClicked(int x, int y)"
          landmarkType = "5">
       </FileBreakpoint>

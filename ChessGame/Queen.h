@@ -1,24 +1,23 @@
 //
-//  Bishop.h
+//  Queen.h
 //  ChessGame
 //
-//  Created by Dibash Chhetri on 1/14/12.
+//  Created by Dibash Chhetri on 1/15/12.
 //  Copyright (c) 2012 University of Connecticut. All rights reserved.
 //
 
-#ifndef ChessGame_Bishop_h
-#define ChessGame_Bishop_h
+#ifndef ChessGame_Queen_h
+#define ChessGame_Queen_h
 
 #include "ChessPiece.h"
-#include "ChessBoard.h"
+
 
 namespace ChessGame 
 {
-    
-    class Bishop : public IChessPiece
+    class Queen : public IChessPiece
     {
     public:
-        Bishop();
+        Queen();
         
         //draws the chess piece
         void draw(sf::RenderWindow&)const ;
@@ -28,10 +27,7 @@ namespace ChessGame
         
         //shows possible move location of where the piece could move to
         void showPossibleMoveLocation(ChessBoard& gameBoard)const;
-    private:
-        
     };
-    
 }
 
 #endif
