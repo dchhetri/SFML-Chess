@@ -10,7 +10,7 @@
 #include "Pawn.h"
 #include "Knight.h"
 #include "Bishop.h"
-
+#include "Rook.h"
 #include <iostream>
 using namespace std;
 
@@ -69,12 +69,15 @@ namespace ChessGame
             whitePieces[i] = boost::shared_ptr<IChessPiece>(new Pawn());
             blackPieces[i] = boost::shared_ptr<IChessPiece>(new Pawn());
         }
-        
+        whitePieces[0] = boost::shared_ptr<IChessPiece>(new Rook());
+        whitePieces[7] = boost::shared_ptr<IChessPiece>(new Rook());
         whitePieces[1] = boost::shared_ptr<IChessPiece>(new Knight());
         whitePieces[6] = boost::shared_ptr<IChessPiece>(new Knight());
         whitePieces[2] = boost::shared_ptr<IChessPiece>(new Bishop());
         whitePieces[5] = boost::shared_ptr<IChessPiece>(new Bishop());
         
+        blackPieces[0 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Rook());
+        blackPieces[7 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Rook());
         blackPieces[1 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Knight());
         blackPieces[6 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Knight());
         blackPieces[2 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Bishop());

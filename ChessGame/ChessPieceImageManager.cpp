@@ -24,6 +24,8 @@ namespace ChessGame
         assert( imageList[PAWN].LoadFromFile("/Users/MacBoss/Desktop/white_pawn.png") && "Error: Could not Load Pawn");
         assert( imageList[KNIGHT].LoadFromFile("/Users/MacBoss/Desktop/white_knight.png") && "Error: Could not Load Knight");
         assert( imageList[BISHOP].LoadFromFile("/Users/MacBoss/Desktop/white_bishop.png") && "Error: Could not Load Bishop");
+        assert( imageList[ROOK].LoadFromFile("/Users/MacBoss/Desktop/white_rook.png") && "Error: Could not Load Rook");        
+        assert( imageList[QUEEN].LoadFromFile("/Users/MacBoss/Desktop/white_queen.png") && "Error: Could not Load Queen");                
     }
     
     const sf::Image& ChessPieceImageManager::getPawnImage(){
@@ -35,7 +37,14 @@ namespace ChessGame
     const sf::Image& ChessPieceImageManager::getBishopImage(){
         return imageList[BISHOP];
     }
+    const sf::Image& ChessPieceImageManager::getRookImage(){
+        return imageList[ROOK];
+    }
+    const sf::Image& ChessPieceImageManager::getQueenImage(){
+        return imageList[QUEEN];
+    }
     const sf::Image& ChessPieceImageManager::getChessGameBackgroundImage(){
         return imageList[BACKGROUND_IMAGE];
     }
+    
 }
