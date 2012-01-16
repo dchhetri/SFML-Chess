@@ -11,6 +11,9 @@
 #include "Knight.h"
 #include "Bishop.h"
 #include "Rook.h"
+#include "Queen.h"
+#include "King.h"
+
 #include <iostream>
 using namespace std;
 
@@ -75,6 +78,8 @@ namespace ChessGame
         whitePieces[6] = boost::shared_ptr<IChessPiece>(new Knight());
         whitePieces[2] = boost::shared_ptr<IChessPiece>(new Bishop());
         whitePieces[5] = boost::shared_ptr<IChessPiece>(new Bishop());
+        whitePieces[4] = boost::shared_ptr<IChessPiece>(new Queen());
+        whitePieces[3] = boost::shared_ptr<IChessPiece>(new King());
         
         blackPieces[0 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Rook());
         blackPieces[7 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Rook());
@@ -82,7 +87,8 @@ namespace ChessGame
         blackPieces[6 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Knight());
         blackPieces[2 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Bishop());
         blackPieces[5 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Bishop());
-        
+        blackPieces[4 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Queen());
+        blackPieces[3 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new King());
         
         m_board.populate(whitePieces, blackPieces);
     }
