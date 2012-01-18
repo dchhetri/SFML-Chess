@@ -53,6 +53,7 @@
 		C44AB25F14C3E88900361CC2 /* King.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = King.h; sourceTree = "<group>"; };
 		C44AB26114C3E8C300361CC2 /* King.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = King.cpp; sourceTree = "<group>"; };
 		C44AB26714C3F54C00361CC2 /* ChessPiece.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChessPiece.cpp; sourceTree = "<group>"; };
+		C44AB26A14C6108700361CC2 /* SidePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidePanel.h; sourceTree = "<group>"; };
 		C4EC942714BA64E60027B7B7 /* ChessGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ChessGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4EC942B14BA64E60027B7B7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C4EC942D14BA64E60027B7B7 /* ChessGame.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ChessGame.1; sourceTree = "<group>"; };
@@ -156,6 +157,7 @@
 				C44AB25014C2B2AA00361CC2 /* Rook.h */,
 				C44AB25414C3958700361CC2 /* Queen.h */,
 				C44AB25F14C3E88900361CC2 /* King.h */,
+				C44AB26A14C6108700361CC2 /* SidePanel.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";

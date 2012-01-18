@@ -7,7 +7,7 @@
 #include <SFML/System/Vector2.hpp>
 #include "Chess.h"
 #include "ChessPieceImageManager.h"
-
+#include "SidePanel.h"
 #include <iostream>
 ////////////////////////////////////////////////////////////
 /// Entry point of application
