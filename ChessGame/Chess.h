@@ -12,6 +12,7 @@
 #include "ChessBoard.h"
 #include "User.h"
 #include "ChessPiece.h"
+#include "SidePanel.h"
 #include <utility>
 #include <boost/array.hpp>
 #include <boost/shared_ptr.hpp>
@@ -33,7 +34,10 @@ namespace ChessGame
         std::pair<User,PieceSet> m_whiteUser;
         std::pair<User,PieceSet> m_blackUser;
         ChessBoard::BoardSlot* m_lastActiveSlot;
+        SidePanel<PiecePtr, 2, 8> m_leftWhiteUserPanel;
+        SidePanel<PiecePtr, 2, 8> m_righBlackUsertPanel;
         sf::RenderWindow& app;
+        bool m_isCheckmate;
      public:
         Chess(sf::RenderWindow& app);
         //start the game
@@ -46,11 +50,22 @@ namespace ChessGame
         void loadState();
         //handle mouse clicked
         void onMouseClicked(int x, int y);
+        //returns true if its user one turn
+        bool isUserOneTurn()const;
+        //returns user1 id
+        int getUserOneId()const;
+        //returns user2 id
+        int getUserTwoId()const;
     private:
         //private helper function
         void _initialize();
         void _onHighlightedEntryClicked(ChessBoard::BoardSlot& slot);
         void _onOccupiedEntryClicked(ChessBoard::BoardSlot& slot);
+        void _alternateUserTurn();
+        //adds the piece in the slot to its appropriate side panel, which represents eaten pieces
+        void _addEatenPieceToSidePanel(ChessBoard::BoardSlot& slot);
+        bool _isCheckmate(ChessBoard::BoardSlot& lastSlotUsed);
+        void _onCheckmate();
     };
 }
 

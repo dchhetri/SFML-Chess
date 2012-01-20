@@ -26,121 +26,138 @@ namespace ChessGame
         m_sprite.Move(offsetPosition);
     }
     
-    //shows possible move location of where the piece could move to
-    void Queen::showPossibleMoveLocation(ChessBoard& gameBoard)const{
+    //returns the possible move location in ChessBoard::BoardSlot position
+    std::vector<sf::Vector2i> Queen::getPossibleMoveLocation(ChessBoard& gameBoard)const{
+        std::vector<sf::Vector2i> possibleLocations;
         using sf::Vector2i;
         Vector2i spritePos( int(m_sprite.GetPosition().x),int(m_sprite.GetPosition().y));
         Vector2i slotPos = gameBoard.convertToBoardIndex(spritePos.x,spritePos.y);
-
+        
         //check north squares
         Vector2i tmp(slotPos.x - 1, slotPos.y );
         while(tmp.x >= 0){
-            if(!gameBoard.isOccupied(tmp.x, tmp.y)){
-                gameBoard.makeHighlighted(tmp.x, tmp.y);
-                --tmp.x;
-            }else if(gameBoard.isOccupiedWithEnemy(tmp.x, tmp.y, m_pieceId)){
-                gameBoard.makeHighlighted(tmp.x, tmp.y);
+            HighlightedStatus status = _canHighlightSlot(gameBoard, tmp);
+            if(status == EMPTY_SLOT_HIGHLIGHTED ){
+                possibleLocations.push_back(tmp);
+                tmp += Vector2i(-1,0); 
+            }
+            else if(status == ENEMY_SLOT_HIGHLIGHTED){
+                possibleLocations.push_back(tmp);
                 break;
-            }else break; //occupied with own piece type
+            }
+            else break;
         }
         //check south squares
         tmp = Vector2i(slotPos.x + 1, slotPos.y );
         while(tmp.x < ChessBoard::BOARD_HEIGHT){
-            if(!gameBoard.isOccupied(tmp.x, tmp.y)){
-                gameBoard.makeHighlighted(tmp.x, tmp.y);
-                ++tmp.x;
-            }else if(gameBoard.isOccupiedWithEnemy(tmp.x, tmp.y, m_pieceId)){
-                gameBoard.makeHighlighted(tmp.x, tmp.y);
+            HighlightedStatus status = _canHighlightSlot(gameBoard, tmp);
+            if(status == EMPTY_SLOT_HIGHLIGHTED ){
+                possibleLocations.push_back(tmp);
+                tmp += Vector2i(1,0); 
+            }
+            else if(status == ENEMY_SLOT_HIGHLIGHTED){
+                possibleLocations.push_back(tmp);
                 break;
-            }else break; //occupied with own piece type
+            }
+            else break;
         }
         //check east squares
         tmp = Vector2i(slotPos.x , slotPos.y - 1);
         while(tmp.y >= 0){
-            if(!gameBoard.isOccupied(tmp.x, tmp.y)){
-                gameBoard.makeHighlighted(tmp.x, tmp.y);
-                --tmp.y;
-            }else if(gameBoard.isOccupiedWithEnemy(tmp.x, tmp.y, m_pieceId)){
-                gameBoard.makeHighlighted(tmp.x, tmp.y);
+            HighlightedStatus status = _canHighlightSlot(gameBoard, tmp);
+            if(status == EMPTY_SLOT_HIGHLIGHTED ){
+                possibleLocations.push_back(tmp);
+                tmp += Vector2i(0,-1); 
+            }
+            else if(status == ENEMY_SLOT_HIGHLIGHTED){
+                possibleLocations.push_back(tmp);
                 break;
-            }else break; //occupied with own piece type
+            }
+            else break;
         }
         //check west squares
         tmp = Vector2i(slotPos.x , slotPos.y + 1);
         while(tmp.y < ChessBoard::BOARD_WIDTH){
-            if(!gameBoard.isOccupied(tmp.x,tmp.y)){
-                gameBoard.makeHighlighted(tmp.x, tmp.y);
-                ++tmp.y;
-            }else if(gameBoard.isOccupiedWithEnemy(tmp.x, tmp.y, m_pieceId)){
-                gameBoard.makeHighlighted(tmp.x, tmp.y);
+            HighlightedStatus status = _canHighlightSlot(gameBoard, tmp);
+            if(status == EMPTY_SLOT_HIGHLIGHTED ){
+                possibleLocations.push_back(tmp);
+                tmp += Vector2i(0,1); 
+            }
+            else if(status == ENEMY_SLOT_HIGHLIGHTED){
+                possibleLocations.push_back(tmp);
                 break;
-            }else break; //occupied with own piece type
+            }
+            else break;
         }
+        
         tmp = Vector2i(slotPos.x - 1, slotPos.y - 1);
         //check top left-diagnol if available
         while(tmp.x >= 0 && tmp.y >= 0)
-        {
-            //if not occupied, highlight it
-            if(!gameBoard.isOccupied(tmp.x, tmp.y)){
-                gameBoard.makeHighlighted(tmp.x, tmp.y);
-                --tmp.x;
-                --tmp.y;
+        {   
+            HighlightedStatus status = _canHighlightSlot(gameBoard, tmp);
+            if(status == EMPTY_SLOT_HIGHLIGHTED ){
+                possibleLocations.push_back(tmp);
+                tmp += Vector2i(-1,-1); 
             }
-            //else if occupied, check if its with enemy and if so highlight it and exit out loop
-            else if(gameBoard.isOccupiedWithEnemy(tmp.x, tmp.y, m_pieceId)){
-                gameBoard.makeHighlighted(tmp.x, tmp.y);
+            else if(status == ENEMY_SLOT_HIGHLIGHTED){
+                possibleLocations.push_back(tmp);
                 break;
             }
-            //else ouccupied with own piece type
-            else break;
+            else break; 
+            
         }
         //check top right-diagnol
         tmp = Vector2i(slotPos.x - 1, slotPos.y + 1);
         while(tmp.x >= 0 && tmp.y < ChessBoard::BOARD_WIDTH){
-            if(!gameBoard.isOccupied(tmp.x, tmp.y)){
-                gameBoard.makeHighlighted(tmp.x, tmp.y);
-                --tmp.x;
-                ++tmp.y;
+            HighlightedStatus status = _canHighlightSlot(gameBoard, tmp);
+            if(status == EMPTY_SLOT_HIGHLIGHTED ){
+                possibleLocations.push_back(tmp);
+                tmp += Vector2i(-1,1); 
             }
-            else if(gameBoard.isOccupiedWithEnemy(tmp.x, tmp.y, m_pieceId)){
-                gameBoard.makeHighlighted(tmp.x, tmp.y);
+            else if(status == ENEMY_SLOT_HIGHLIGHTED){
+                possibleLocations.push_back(tmp);
                 break;
             }
             else break;
-            
         }
         //check bottom left-diagnol
         tmp = Vector2i(slotPos.x + 1, slotPos.y - 1);
         while(tmp.x < ChessBoard::BOARD_HEIGHT && tmp.y >= 0){
-            if(!gameBoard.isOccupied(tmp.x, tmp.y)){
-                gameBoard.makeHighlighted(tmp.x, tmp.y);
-                ++tmp.x;
-                --tmp.y;
+            HighlightedStatus status = _canHighlightSlot(gameBoard, tmp);
+            if(status == EMPTY_SLOT_HIGHLIGHTED ){
+                possibleLocations.push_back(tmp);
+                tmp += Vector2i(1,-1); 
             }
-            else if(gameBoard.isOccupiedWithEnemy(tmp.x, tmp.y, m_pieceId)){
-                gameBoard.makeHighlighted(tmp.x, tmp.y);
+            else if(status == ENEMY_SLOT_HIGHLIGHTED){
+                possibleLocations.push_back(tmp);
                 break;
             }
             else break;
-            
         }
         //check bottom right-diagnol
         tmp = Vector2i(slotPos.x + 1, slotPos.y + 1);
         while(tmp.x < ChessBoard::BOARD_HEIGHT && tmp.y < ChessBoard::BOARD_HEIGHT){
-            if(!gameBoard.isOccupied(tmp.x, tmp.y)){
-                gameBoard.makeHighlighted(tmp.x, tmp.y);
-                ++tmp.x;
-                ++tmp.y;
+            HighlightedStatus status = _canHighlightSlot(gameBoard, tmp);
+            if(status == EMPTY_SLOT_HIGHLIGHTED ){
+                possibleLocations.push_back(tmp);
+                tmp += Vector2i(1,1); 
             }
-            else if(gameBoard.isOccupiedWithEnemy(tmp.x, tmp.y, m_pieceId)){
-                gameBoard.makeHighlighted(tmp.x, tmp.y);
+            else if(status == ENEMY_SLOT_HIGHLIGHTED){
+                possibleLocations.push_back(tmp);
                 break;
             }
             else break;
-            
         }
-
-        
+        return possibleLocations;
+   
+    }
+    //shows possible move location of where the piece could move to
+    void Queen::showPossibleMoveLocation(ChessBoard& gameBoard)const{
+        std::vector<sf::Vector2i> possibleLocation = getPossibleMoveLocation(gameBoard);
+        for(int i = 0; i < possibleLocation.size(); ++i){
+            const sf::Vector2i& vec = possibleLocation[i];
+            gameBoard.makeHighlighted(vec.x, vec.y);
+        }        
     }
     
 }
