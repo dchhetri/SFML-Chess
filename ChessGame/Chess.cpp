@@ -13,13 +13,13 @@
 #include "Rook.h"
 #include "Queen.h"
 #include "King.h"
-
+#include "details.h"
 #include <iostream>
 using namespace std;
 
 namespace ChessGame
 {
-    Chess::Chess(sf::RenderWindow& app):app(app), m_isUserOneTurn(true){
+    Chess::Chess(sf::RenderWindow& app):app(app), m_isUserOneTurn(true), m_isCheckmate(false){
         _initialize();
     }
     
@@ -28,6 +28,8 @@ namespace ChessGame
         m_board.draw(app);
         m_leftWhiteUserPanel.draw(app);
         m_righBlackUsertPanel.draw(app);
+        
+        if(m_isCheckmate){ _onCheckmate(); }
     }
 
     //reset board
@@ -132,7 +134,12 @@ namespace ChessGame
             _addEatenPieceToSidePanel(newSlot); //add eaten piece to side panel
         }
         m_board.moveChessPiece(*m_lastActiveSlot, newSlot);
+        //if checkmate alert it
+        if(_isCheckmate(newSlot)){
+            m_isCheckmate = true;
+        }
         _alternateUserTurn();
+         m_isCheckmate = false;
     }
     //updates only if current user's piece has been clicked
     void Chess::_onOccupiedEntryClicked(ChessBoard::BoardSlot& entry){
@@ -155,5 +162,32 @@ namespace ChessGame
             m_righBlackUsertPanel.addNext(slot.piece);
         }
 
+    }
+    //check if the last move caused a checkmate
+    bool Chess::_isCheckmate(ChessBoard::BoardSlot& lastSlotUsed){
+        bool isCheckMate = false;
+        if(lastSlotUsed.piece.get() != NULL)
+        {
+            std::vector<sf::Vector2i> nextPossibleMoves = lastSlotUsed.piece->getPossibleMoveLocation(m_board);
+            
+            for(int i = 0; i < nextPossibleMoves.size(); ++i){
+                sf::Vector2i& nextLocation = nextPossibleMoves[i];
+                ChessBoard::BoardSlot& slot = m_board.getSlot(nextLocation.x, nextLocation.y);
+                //check if king can be eaten next move
+                if(slot.piece.get() != NULL && slot.piece->getPieceType() == detail::IChessPieceEnums::KING){
+                    isCheckMate = true;
+                    break;
+                }
+                //else continue;
+            }
+        }
+        return isCheckMate;
+    }
+    void Chess::_onCheckmate(){
+        sf::String checkmateString("CHECKMATE!", sf::Font::GetDefaultFont());
+        checkmateString.SetColor(sf::Color(255,0,0));
+        checkmateString.Move(300, 0);
+        m_isCheckmate  = true;
+        app.Draw(checkmateString);
     }
 }

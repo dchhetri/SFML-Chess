@@ -28,7 +28,9 @@ namespace ChessGame
         
         //shows possible move location of where the piece could move to
         void showPossibleMoveLocation(ChessBoard& gameBoard)const;
-    private:
+
+        //returns the possible move location in ChessBoard::BoardSlot position
+        std::vector<sf::Vector2i> getPossibleMoveLocation(ChessBoard& gameBoard)const ;
         
     };
     

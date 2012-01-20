@@ -37,6 +37,7 @@ namespace ChessGame
         SidePanel<PiecePtr, 2, 8> m_leftWhiteUserPanel;
         SidePanel<PiecePtr, 2, 8> m_righBlackUsertPanel;
         sf::RenderWindow& app;
+        bool m_isCheckmate;
      public:
         Chess(sf::RenderWindow& app);
         //start the game
@@ -63,6 +64,8 @@ namespace ChessGame
         void _alternateUserTurn();
         //adds the piece in the slot to its appropriate side panel, which represents eaten pieces
         void _addEatenPieceToSidePanel(ChessBoard::BoardSlot& slot);
+        bool _isCheckmate(ChessBoard::BoardSlot& lastSlotUsed);
+        void _onCheckmate();
     };
 }
 

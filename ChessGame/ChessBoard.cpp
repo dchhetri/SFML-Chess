@@ -50,13 +50,14 @@ namespace ChessGame
         //clear highlighted Entries        
         clearHighlightedEntries();
         
-        
        //update newSlot piece
         newSlot.piece = oldSlot.piece;
         newSlot.status = OCCUPIED;
+        
         //update the sprite's position
         newSlot.piece->setPosition( newSlot.rect.GetPosition());
         newSlot.piece->getSprite().Move(_calculateSpriteOffset(),_calculateSpriteOffset());
+        
         //reset old slot
         oldSlot.piece = PiecePtr();
         oldSlot.status = EMPTY;

@@ -25,8 +25,9 @@ namespace ChessGame
         m_sprite.Move(offsetPosition);
     }
     
-    //shows possible move location of where the piece could move to
-    void Bishop::showPossibleMoveLocation(ChessBoard& gameBoard)const{
+    //returns the possible move location in ChessBoard::BoardSlot position
+    std::vector<sf::Vector2i> Bishop::getPossibleMoveLocation(ChessBoard& gameBoard)const{
+        std::vector<sf::Vector2i> possibleLocations;
         using sf::Vector2i;
         Vector2i spritePos( int(m_sprite.GetPosition().x),int(m_sprite.GetPosition().y));
         Vector2i slotPos = gameBoard.convertToBoardIndex(spritePos.x,spritePos.y);
@@ -34,36 +35,72 @@ namespace ChessGame
         Vector2i tmp(slotPos.x - 1, slotPos.y - 1);
         //check top left-diagnol if available
         while(tmp.x >= 0 && tmp.y >= 0)
-        {   
-            if(_tryToHighlight(gameBoard, tmp) == EMPTY_SLOT_HIGHLIGHTED){ 
+        {   HighlightedStatus status = _canHighlightSlot(gameBoard, tmp);
+            if(status == EMPTY_SLOT_HIGHLIGHTED ){
+                possibleLocations.push_back(tmp);
                 tmp += Vector2i(-1,-1); 
             }
-            else break; 
+            else if(status == ENEMY_SLOT_HIGHLIGHTED){
+                possibleLocations.push_back(tmp);
+                break;
+            }
+            else break;
             
         }
         //check top right-diagnol
         tmp = Vector2i(slotPos.x - 1, slotPos.y + 1);
         while(tmp.x >= 0 && tmp.y < ChessBoard::BOARD_WIDTH){
-            if(_tryToHighlight(gameBoard, tmp) == EMPTY_SLOT_HIGHLIGHTED){ 
+            HighlightedStatus status = _canHighlightSlot(gameBoard, tmp);
+            if(status == EMPTY_SLOT_HIGHLIGHTED ){
+                possibleLocations.push_back(tmp);
                 tmp += Vector2i(-1,1); 
+            }
+            else if(status == ENEMY_SLOT_HIGHLIGHTED){
+                possibleLocations.push_back(tmp);
+                break;
             }
             else break;
         }
         //check bottom left-diagnol
         tmp = Vector2i(slotPos.x + 1, slotPos.y - 1);
         while(tmp.x < ChessBoard::BOARD_HEIGHT && tmp.y >= 0){
-            if(_tryToHighlight(gameBoard, tmp) == EMPTY_SLOT_HIGHLIGHTED){ 
+            HighlightedStatus status = _canHighlightSlot(gameBoard, tmp);
+            if(status == EMPTY_SLOT_HIGHLIGHTED ){
+                possibleLocations.push_back(tmp);
                 tmp += Vector2i(1,-1); 
+            }
+            else if(status == ENEMY_SLOT_HIGHLIGHTED){
+                possibleLocations.push_back(tmp);
+                break;
             }
             else break;
         }
         //check bottom right-diagnol
         tmp = Vector2i(slotPos.x + 1, slotPos.y + 1);
         while(tmp.x < ChessBoard::BOARD_HEIGHT && tmp.y < ChessBoard::BOARD_HEIGHT){
-            if(_tryToHighlight(gameBoard, tmp) == EMPTY_SLOT_HIGHLIGHTED){ 
+            HighlightedStatus status = _canHighlightSlot(gameBoard, tmp);
+            if(status == EMPTY_SLOT_HIGHLIGHTED ){
+                possibleLocations.push_back(tmp);
                 tmp += Vector2i(1,1); 
+            }
+            else if(status == ENEMY_SLOT_HIGHLIGHTED){
+                possibleLocations.push_back(tmp);
+                break;
             }
             else break;
         }
+        
+        return possibleLocations;
+
+    }
+
+    //shows possible move location of where the piece could move to
+    void Bishop::showPossibleMoveLocation(ChessBoard& gameBoard)const{
+        std::vector<sf::Vector2i> possibleLocation = getPossibleMoveLocation(gameBoard);
+        for(int i = 0; i < possibleLocation.size(); ++i){
+            const sf::Vector2i& vec = possibleLocation[i];
+            gameBoard.makeHighlighted(vec.x, vec.y);
+        }
+
     }
 }

@@ -41,7 +41,15 @@ namespace ChessGame
     detail::IChessPieceEnums::PieceId IChessPiece::getPieceID()const{
         return m_pieceId;
     }
-
+    //set the current piece type
+    void IChessPiece::setPieceType(const PieceType pieceType){
+        m_pieceType = pieceType;
+    }
+    
+    //returns the piece type
+    detail::IChessPieceEnums::PieceType IChessPiece::getPieceType()const{
+        return m_pieceType;
+    }
     
     //tries to highlight the slot given by index by checking if its empty or a enemy's piece occupies it
     IChessPiece::HighlightedStatus IChessPiece::_tryToHighlight(ChessBoard& gameBoard,const sf::Vector2i& index)const
@@ -59,4 +67,15 @@ namespace ChessGame
         return status;
     }
     
+    IChessPiece::HighlightedStatus IChessPiece::_canHighlightSlot(ChessBoard& gameBoard, const sf::Vector2i& index)const{
+        HighlightedStatus status = NOT_HIGHLIGHTED;
+        //if not occupied highlight it
+        if(!gameBoard.isOccupied(index.x, index.y)){
+            status = EMPTY_SLOT_HIGHLIGHTED;
+        }//else if occupied with enemy highlight it
+        else if(gameBoard.isOccupiedWithEnemy(index.x, index.y, m_pieceId)){
+            status = ENEMY_SLOT_HIGHLIGHTED;;
+        }
+        return status;
+    }
 }

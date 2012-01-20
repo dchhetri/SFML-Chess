@@ -13,6 +13,7 @@
 #include <SFML/System/Vector2.hpp>
 #include <SFML/Graphics.hpp>
 
+#include <vector>
 #include "ChessBoard.h"
 #include "details.h"
 
@@ -35,6 +36,9 @@ namespace ChessGame
         
         //shows possible move location of where the piece could move to
         virtual void showPossibleMoveLocation(ChessBoard& gameBoard)const = 0;
+        
+        //returns the possible move location in ChessBoard::BoardSlot position
+        virtual std::vector<sf::Vector2i> getPossibleMoveLocation(ChessBoard& gameBoard)const = 0;
         
         //returns the types chess piece
         detail::IChessPieceEnums::PieceType pieceType()const;
@@ -60,6 +64,12 @@ namespace ChessGame
         //get the current piece id
         detail::IChessPieceEnums::PieceId getPieceID()const;
         
+        //set the current piece type
+        void setPieceType(const PieceType pieceType);
+        
+        //returns the piece type
+        detail::IChessPieceEnums::PieceType getPieceType()const;
+        
         virtual ~IChessPiece(){}
         
     protected:
@@ -72,6 +82,8 @@ namespace ChessGame
         enum HighlightedStatus{ EMPTY_SLOT_HIGHLIGHTED, ENEMY_SLOT_HIGHLIGHTED, NOT_HIGHLIGHTED};
         //trys to highlight the the slot if not occupied or occupied with enemy
         HighlightedStatus _tryToHighlight(ChessBoard& board,const sf::Vector2i& index)const;
+        //check if the slot can be highlighted, returns the status of the check
+        HighlightedStatus _canHighlightSlot(ChessBoard& gameBoard, const sf::Vector2i& index)const;
     };
 }
 
