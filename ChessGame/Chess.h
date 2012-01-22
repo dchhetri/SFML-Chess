@@ -13,6 +13,7 @@
 #include "User.h"
 #include "ChessPiece.h"
 #include "SidePanel.h"
+#include "StatusBar.h"
 #include <utility>
 #include <boost/array.hpp>
 #include <boost/shared_ptr.hpp>
@@ -25,7 +26,7 @@ namespace ChessGame
     
     class Chess
     {
-     private:
+     public:
         typedef boost::shared_ptr<IChessPiece> PiecePtr;
         typedef boost::array< PiecePtr, 16> PieceSet;
      private:
@@ -36,8 +37,9 @@ namespace ChessGame
         ChessBoard::BoardSlot* m_lastActiveSlot;
         SidePanel<PiecePtr, 2, 8> m_leftWhiteUserPanel;
         SidePanel<PiecePtr, 2, 8> m_righBlackUsertPanel;
+        StatusBar   m_statusBar;
         sf::RenderWindow& app;
-        bool m_isCheckmate;
+        bool m_isGameOver;
      public:
         Chess(sf::RenderWindow& app);
         //start the game
@@ -56,6 +58,8 @@ namespace ChessGame
         int getUserOneId()const;
         //returns user2 id
         int getUserTwoId()const;
+        //returns true if game is over
+        bool isGameOver()const;
     private:
         //private helper function
         void _initialize();
@@ -65,7 +69,11 @@ namespace ChessGame
         //adds the piece in the slot to its appropriate side panel, which represents eaten pieces
         void _addEatenPieceToSidePanel(ChessBoard::BoardSlot& slot);
         bool _isCheckmate(ChessBoard::BoardSlot& lastSlotUsed);
+        bool _isStaleMate();
+        
         void _onCheckmate();
+        void _onGameOver();
+        void _onStaleMate();
     };
 }
 

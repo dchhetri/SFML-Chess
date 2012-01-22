@@ -129,6 +129,16 @@ namespace ChessGame
             return sf::Vector2i((winY - m_position.y)/CELL_SIZE,(winX - m_position.x)/CELL_SIZE);
         }
     }
+    //returns the white chess piece set
+    const ChessBoard::PieceSet& ChessBoard::getWhiteSet()const{
+        return m_whitePieceSet;
+    }
+    
+    //returns the black chess piece set
+    const ChessBoard::PieceSet& ChessBoard::getBlackSet()const{
+        return m_blackPieceSet;
+    }
+    
     
     //positions the two set of pieces to its initial start position
     void ChessBoard::populate(PieceSet& set1, PieceSet& set2)
