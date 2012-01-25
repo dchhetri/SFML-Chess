@@ -57,6 +57,13 @@
 		C44AB26A14C6108700361CC2 /* SidePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidePanel.h; sourceTree = "<group>"; };
 		C44AB26F14CBC09C00361CC2 /* StatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBar.h; sourceTree = "<group>"; };
 		C44AB27114CBC27200361CC2 /* StatusBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StatusBar.cpp; sourceTree = "<group>"; };
+		C44AB28414CF8C5F00361CC2 /* ChessSpriteSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ChessSpriteSheet.png; sourceTree = "<group>"; };
+		C44AB28514CF8C5F00361CC2 /* white_bishop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_bishop.png; sourceTree = "<group>"; };
+		C44AB28614CF8C5F00361CC2 /* white_king.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_king.png; sourceTree = "<group>"; };
+		C44AB28714CF8C5F00361CC2 /* white_knight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_knight.png; sourceTree = "<group>"; };
+		C44AB28814CF8C5F00361CC2 /* white_pawn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_pawn.png; sourceTree = "<group>"; };
+		C44AB28914CF8C5F00361CC2 /* white_queen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_queen.png; sourceTree = "<group>"; };
+		C44AB28A14CF8C5F00361CC2 /* white_rook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_rook.png; sourceTree = "<group>"; };
 		C4EC942714BA64E60027B7B7 /* ChessGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ChessGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4EC942B14BA64E60027B7B7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C4EC942D14BA64E60027B7B7 /* ChessGame.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ChessGame.1; sourceTree = "<group>"; };
@@ -101,9 +108,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C44AB28314CF8C5F00361CC2 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C44AB28414CF8C5F00361CC2 /* ChessSpriteSheet.png */,
+				C44AB28514CF8C5F00361CC2 /* white_bishop.png */,
+				C44AB28614CF8C5F00361CC2 /* white_king.png */,
+				C44AB28714CF8C5F00361CC2 /* white_knight.png */,
+				C44AB28814CF8C5F00361CC2 /* white_pawn.png */,
+				C44AB28914CF8C5F00361CC2 /* white_queen.png */,
+				C44AB28A14CF8C5F00361CC2 /* white_rook.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		C4EC941C14BA64E60027B7B7 = {
 			isa = PBXGroup;
 			children = (
+				C44AB28314CF8C5F00361CC2 /* Images */,
 				C4EC944014BA652C0027B7B7 /* OpenGL.framework */,
 				C4EC943414BA64FE0027B7B7 /* SFML.framework */,
 				C4EC943514BA64FE0027B7B7 /* sfml-window.framework */,

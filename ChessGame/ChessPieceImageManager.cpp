@@ -21,7 +21,7 @@ namespace ChessGame
 
     void ChessPieceImageManager::initialize(){
         //load in pawn image
-        assert( imageList[PAWN].LoadFromFile("/Users/MacBoss/Desktop/white_pawn.png") && "Error: Could not Load Pawn");
+        assert( imageList[PAWN].LoadFromFile("../Images/white_pawn.png") && "Error: Could not Load Pawn");
         assert( imageList[KNIGHT].LoadFromFile("/Users/MacBoss/Desktop/white_knight.png") && "Error: Could not Load Knight");
         assert( imageList[BISHOP].LoadFromFile("/Users/MacBoss/Desktop/white_bishop.png") && "Error: Could not Load Bishop");
         assert( imageList[ROOK].LoadFromFile("/Users/MacBoss/Desktop/white_rook.png") && "Error: Could not Load Rook");        
