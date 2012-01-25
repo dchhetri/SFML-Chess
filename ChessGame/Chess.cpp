@@ -19,7 +19,7 @@ using namespace std;
 
 namespace ChessGame
 {
-    Chess::Chess(sf::RenderWindow& app):app(app), m_isUserOneTurn(true), m_isCheckmate(false){
+    Chess::Chess(sf::RenderWindow& app):app(app), m_isUserOneTurn(true){
         _initialize();
     }
     
@@ -28,8 +28,7 @@ namespace ChessGame
         m_board.draw(app);
         m_leftWhiteUserPanel.draw(app);
         m_righBlackUsertPanel.draw(app);
-        
-        if(m_isCheckmate){ _onCheckmate(); }
+        m_statusBar.draw(app);
     }
 
     //reset board
@@ -41,6 +40,9 @@ namespace ChessGame
     //load state
     void Chess::loadState(){}
     
+    bool Chess::isGameOver()const{
+        return m_isGameOver;
+    }
     //returns true if its user one's turn
     bool Chess::isUserOneTurn()const{
         return m_isUserOneTurn;
@@ -58,7 +60,7 @@ namespace ChessGame
     void Chess::onMouseClicked(int x, int y){
         sf::Vector2i index = m_board.convertToBoardIndex(x, y);
         //if valid index 
-        if(index != ChessBoard::BAD_INDEX)
+        if(index != ChessBoard::BAD_INDEX && !m_isGameOver)
         {
             ChessBoard::BoardSlot& entry = m_board.getSlot(index.x, index.y);
         
@@ -80,6 +82,10 @@ namespace ChessGame
     
     //private helper function
     void Chess::_initialize(){
+        //setup status bar 
+        m_statusBar.setStatusType("Current active player: ");
+        m_statusBar.setStatusMessage("Player #1");
+        
         //set id
         m_whiteUser.first.id = detail::IChessPieceEnums::WHITE_PIECE_ID;
         m_blackUser.first.id = detail::IChessPieceEnums::BLACK_PIECE_ID;
@@ -128,18 +134,33 @@ namespace ChessGame
     }
     
     void Chess::_onHighlightedEntryClicked(ChessBoard::BoardSlot& newSlot){
-        //move piece
+        //alternate the turn
+        _alternateUserTurn();
+        
         //if highlighted entry has piece add it to the correct side panel
-        if(newSlot.piece.get() != NULL){
-            _addEatenPieceToSidePanel(newSlot); //add eaten piece to side panel
+        if(newSlot.piece.get() != NULL)
+        {
+            //add eaten piece to side panel
+            _addEatenPieceToSidePanel(newSlot);             
+            
+            //king was eaten, game over
+            if(newSlot.piece->getPieceType() == detail::IChessPieceEnums::KING){
+                _onGameOver();
+            }
         }
+        
+        //move actual piece
         m_board.moveChessPiece(*m_lastActiveSlot, newSlot);
+        
         //if checkmate alert it
         if(_isCheckmate(newSlot)){
-            m_isCheckmate = true;
+            _onCheckmate(); 
         }
-        _alternateUserTurn();
-         m_isCheckmate = false;
+        //if stalemate alert it
+        if(_isStaleMate()){
+            _onStaleMate();
+        }
+         
     }
     //updates only if current user's piece has been clicked
     void Chess::_onOccupiedEntryClicked(ChessBoard::BoardSlot& entry){
@@ -153,6 +174,8 @@ namespace ChessGame
     //alternates user's turn
     void Chess::_alternateUserTurn(){
         m_isUserOneTurn ^= 1;
+        m_statusBar.setStatusType("Current active player: ");
+        m_statusBar.setStatusMessage((m_isUserOneTurn? "Player #1": "Player #2"));
     }
     void Chess::_addEatenPieceToSidePanel(ChessBoard::BoardSlot& slot){
         //if black piece eaten, add it to the left
@@ -183,11 +206,40 @@ namespace ChessGame
         }
         return isCheckMate;
     }
+    //returns true if current state is stalemate, that is, it returns true if the opponent has no moves left
+    bool Chess::_isStaleMate(){
+        bool isStaleMate = true;
+        const PieceSet& set = m_isUserOneTurn?  m_board.getWhiteSet() : m_board.getBlackSet();
+        for(int i = 0; i < set.size(); ++i){
+            std::vector<sf::Vector2i> moves = set[i]->getPossibleMoveLocation(m_board);
+            if(moves.size() > 0){
+                isStaleMate = false;
+                break;
+            }
+        }
+        return isStaleMate;
+    }
+    
     void Chess::_onCheckmate(){
-        sf::String checkmateString("CHECKMATE!", sf::Font::GetDefaultFont());
-        checkmateString.SetColor(sf::Color(255,0,0));
-        checkmateString.Move(300, 0);
-        m_isCheckmate  = true;
-        app.Draw(checkmateString);
+        //sf::String checkmateString("CHECKMATE!", sf::Font::GetDefaultFont());
+        //checkmateString.SetColor(sf::Color(255,0,0));
+        //checkmateString.Move(300, 0);
+        //app.Draw(checkmateString);
+        m_statusBar.setStatusType("Current Status : ");
+        m_statusBar.setStatusMessage("CHECKMATE!");
+    }
+    void Chess::_onGameOver(){
+        //sf::String checkmateString("GAME OVER!", sf::Font::GetDefaultFont());
+        //checkmateString.SetColor(sf::Color(255,0,0));
+        //checkmateString.Move(300, 0);
+        //app.Draw(checkmateString);
+        m_statusBar.setStatusType("Current Status: ");
+        m_statusBar.setStatusMessage("GAME OVER!");
+        m_isGameOver = true;
+    }
+    void Chess::_onStaleMate(){
+        m_statusBar.setStatusType("Current Status: ");
+        m_statusBar.setStatusMessage("STALEMATE!");
+        m_isGameOver = true;
     }
 }

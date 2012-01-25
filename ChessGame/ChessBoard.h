@@ -98,6 +98,10 @@ namespace ChessGame
         //if invalid coordinates provided, returns ChessBoard::BAD_INDEX
         sf::Vector2i convertToBoardIndex(int winX, int winY)const;
         
+        //returns the white chess piece set
+        const PieceSet& getWhiteSet()const;
+        //returns the black chess piece set
+        const PieceSet& getBlackSet()const;
     private:
         /*** helper functions ***/
         void _initialize();
