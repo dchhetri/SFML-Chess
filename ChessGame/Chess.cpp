@@ -153,8 +153,8 @@ namespace ChessGame
         m_board.moveChessPiece(*m_lastActiveSlot, newSlot);
         
         //if checkmate alert it
-        if(_isCheckmate(newSlot)){
-            _onCheckmate(); 
+        if(_isKingChecked(newSlot)){
+            _onKingChecked(); 
         }
         //if stalemate alert it
         if(_isStaleMate()){
@@ -187,7 +187,7 @@ namespace ChessGame
 
     }
     //check if the last move caused a checkmate
-    bool Chess::_isCheckmate(ChessBoard::BoardSlot& lastSlotUsed){
+    bool Chess::_isKingChecked(ChessBoard::BoardSlot& lastSlotUsed){
         bool isCheckMate = false;
         if(lastSlotUsed.piece.get() != NULL)
         {
@@ -220,13 +220,13 @@ namespace ChessGame
         return isStaleMate;
     }
     
-    void Chess::_onCheckmate(){
+    void Chess::_onKingChecked(){
         //sf::String checkmateString("CHECKMATE!", sf::Font::GetDefaultFont());
         //checkmateString.SetColor(sf::Color(255,0,0));
         //checkmateString.Move(300, 0);
         //app.Draw(checkmateString);
         m_statusBar.setStatusType("Current Status : ");
-        m_statusBar.setStatusMessage("CHECKMATE!");
+        m_statusBar.setStatusMessage("CHECK!");
     }
     void Chess::_onGameOver(){
         //sf::String checkmateString("GAME OVER!", sf::Font::GetDefaultFont());

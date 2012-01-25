@@ -68,10 +68,10 @@ namespace ChessGame
         void _alternateUserTurn();
         //adds the piece in the slot to its appropriate side panel, which represents eaten pieces
         void _addEatenPieceToSidePanel(ChessBoard::BoardSlot& slot);
-        bool _isCheckmate(ChessBoard::BoardSlot& lastSlotUsed);
+        bool _isKingChecked(ChessBoard::BoardSlot& lastSlotUsed);
         bool _isStaleMate();
         
-        void _onCheckmate();
+        void _onKingChecked();
         void _onGameOver();
         void _onStaleMate();
     };
