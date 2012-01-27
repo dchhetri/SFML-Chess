@@ -68,12 +68,21 @@ namespace ChessGame
         void _alternateUserTurn();
         //adds the piece in the slot to its appropriate side panel, which represents eaten pieces
         void _addEatenPieceToSidePanel(ChessBoard::BoardSlot& slot);
+        //returns true if the king is checked
         bool _isKingChecked(ChessBoard::BoardSlot& lastSlotUsed);
+        //check if the opponent can move any piece
         bool _isStaleMate();
+        //returns true if pawn should get promoted
+        bool _shouldPromote(ChessBoard::BoardSlot& slot);
         
+        //handles situation when king is checked
         void _onKingChecked();
+        //handles situation when game is over
         void _onGameOver();
+        //handles situation when statemate
         void _onStaleMate();
+        //handles situation when the piece on slot needs to get promoted
+        void _onPromotion(ChessBoard::BoardSlot& slot);
     };
 }
 

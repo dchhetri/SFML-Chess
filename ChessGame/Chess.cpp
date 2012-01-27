@@ -14,6 +14,8 @@
 #include "Queen.h"
 #include "King.h"
 #include "details.h"
+#include "PromotionPiecePicker.h"
+
 #include <iostream>
 using namespace std;
 
@@ -160,6 +162,10 @@ namespace ChessGame
         if(_isStaleMate()){
             _onStaleMate();
         }
+        //if promotion possible, promote it
+        if(_shouldPromote(newSlot)){
+            _onPromotion(newSlot);
+        }
          
     }
     //updates only if current user's piece has been clicked
@@ -219,7 +225,22 @@ namespace ChessGame
         }
         return isStaleMate;
     }
-    
+    bool Chess::_shouldPromote(ChessBoard::BoardSlot& slot){
+        bool shouldPromote = false;
+        
+        //first check if the piece is pawn( only pawn gets promoted )
+        if(slot.piece->getPieceType() == detail::IChessPieceEnums::PAWN){
+            //get opposite end position
+            int endPos = slot.piece->getPieceDirection() == detail::IChessPieceEnums::DOWN ? 0 : ChessBoard::BOARD_HEIGHT - 1;
+            //get piece position and check if piece is on proper end
+            sf::Vector2f rawPos = slot.rect.GetPosition();
+            //get convertex booard position
+            int indexPos =  m_board.convertToBoardIndex(rawPos.x, rawPos.y).x;
+            //true if pawn is in proper end position
+            shouldPromote = indexPos == endPos;
+        }
+        return shouldPromote;
+    }
     void Chess::_onKingChecked(){
         //sf::String checkmateString("CHECKMATE!", sf::Font::GetDefaultFont());
         //checkmateString.SetColor(sf::Color(255,0,0));
@@ -241,5 +262,12 @@ namespace ChessGame
         m_statusBar.setStatusType("Current Status: ");
         m_statusBar.setStatusMessage("STALEMATE!");
         m_isGameOver = true;
+    }
+    void Chess::_onPromotion(ChessBoard::BoardSlot &slot){
+        m_statusBar.setStatusType("Current Status: ");
+        m_statusBar.setStatusMessage("PROMOTING!");
+        cout << "Promoting\n";
+        PromotionPiecePicker picker(app);
+        detail::IChessPieceEnums::PieceType type = picker.getUserPick();
     }
 }
