@@ -21,21 +21,30 @@ namespace ChessGame
         _initialize();
     }
     
+    void ChessBoard::setPosition(int x, int y){
+        m_position.x = x;
+        m_position.y = y;
+    }
     //draws the board given canvas
     void ChessBoard::draw(sf::RenderWindow& canvas)const
     {
+        //draw background
+        canvas.Draw(m_background);
+        
         //draw chess board
-        for(int i = 0; i < m_board.size(); ++i){
-            for(int j = 0; j < m_board.size(); ++j){
-               //note we need to draw pieces first because of the draw ordering by sfml
-                if(m_board[i][j].piece.get() != NULL){
+        for(int i = 0; i < m_board.size(); ++i)
+        {
+            for(int j = 0; j < m_board[i].size(); ++j)
+            {
+                canvas.Draw( m_board[i][j].rect );        
+                
+                if(m_board[i][j].piece.get() != NULL)
+                {
                     m_board[i][j].piece->draw(canvas);
                 }
-                canvas.Draw( m_board[i][j].rect );
+                
             }
         }
-         //draw background
-        canvas.Draw(m_background);
     }
     
     //returns the top left corner of the board
@@ -184,6 +193,7 @@ namespace ChessGame
     //initializes an empty board
     void ChessBoard::_initialize()
     {
+        
         for(int i = 0; i < m_board.size(); ++i)
         {
             for(int j = 0; j < m_board.size(); ++j)

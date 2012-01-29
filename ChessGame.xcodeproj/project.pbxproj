@@ -13,6 +13,9 @@
 		C44AB26214C3E8C300361CC2 /* King.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C44AB26114C3E8C300361CC2 /* King.cpp */; };
 		C44AB26814C3F54C00361CC2 /* ChessPiece.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C44AB26714C3F54C00361CC2 /* ChessPiece.cpp */; };
 		C44AB27214CBC27200361CC2 /* StatusBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C44AB27114CBC27200361CC2 /* StatusBar.cpp */; };
+		C44AB29814D244F200361CC2 /* PromotionPiecePicker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C44AB29714D244F100361CC2 /* PromotionPiecePicker.cpp */; };
+		C44AB29A14D4E9EA00361CC2 /* details.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C44AB29914D4E9E900361CC2 /* details.cpp */; };
+		C44AB29D14D4EC3B00361CC2 /* utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C44AB29C14D4EC3A00361CC2 /* utils.cpp */; };
 		C4EC942C14BA64E60027B7B7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4EC942B14BA64E60027B7B7 /* main.cpp */; };
 		C4EC942E14BA64E60027B7B7 /* ChessGame.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C4EC942D14BA64E60027B7B7 /* ChessGame.1 */; };
 		C4EC943A14BA64FE0027B7B7 /* SFML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4EC943414BA64FE0027B7B7 /* SFML.framework */; };
@@ -64,6 +67,11 @@
 		C44AB28814CF8C5F00361CC2 /* white_pawn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_pawn.png; sourceTree = "<group>"; };
 		C44AB28914CF8C5F00361CC2 /* white_queen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_queen.png; sourceTree = "<group>"; };
 		C44AB28A14CF8C5F00361CC2 /* white_rook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_rook.png; sourceTree = "<group>"; };
+		C44AB29614D243EF00361CC2 /* PromotionPiecePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromotionPiecePicker.h; sourceTree = "<group>"; };
+		C44AB29714D244F100361CC2 /* PromotionPiecePicker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PromotionPiecePicker.cpp; sourceTree = "<group>"; };
+		C44AB29914D4E9E900361CC2 /* details.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = details.cpp; sourceTree = "<group>"; };
+		C44AB29B14D4EBFD00361CC2 /* utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
+		C44AB29C14D4EC3A00361CC2 /* utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = utils.cpp; sourceTree = "<group>"; };
 		C4EC942714BA64E60027B7B7 /* ChessGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ChessGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4EC942B14BA64E60027B7B7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C4EC942D14BA64E60027B7B7 /* ChessGame.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ChessGame.1; sourceTree = "<group>"; };
@@ -184,6 +192,8 @@
 				C44AB25F14C3E88900361CC2 /* King.h */,
 				C44AB26A14C6108700361CC2 /* SidePanel.h */,
 				C44AB26F14CBC09C00361CC2 /* StatusBar.h */,
+				C44AB29614D243EF00361CC2 /* PromotionPiecePicker.h */,
+				C44AB29B14D4EBFD00361CC2 /* utils.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -202,6 +212,9 @@
 				C44AB26114C3E8C300361CC2 /* King.cpp */,
 				C44AB26714C3F54C00361CC2 /* ChessPiece.cpp */,
 				C44AB27114CBC27200361CC2 /* StatusBar.cpp */,
+				C44AB29714D244F100361CC2 /* PromotionPiecePicker.cpp */,
+				C44AB29914D4E9E900361CC2 /* details.cpp */,
+				C44AB29C14D4EC3A00361CC2 /* utils.cpp */,
 			);
 			name = Implementation;
 			sourceTree = "<group>";
@@ -270,6 +283,9 @@
 				C44AB26214C3E8C300361CC2 /* King.cpp in Sources */,
 				C44AB26814C3F54C00361CC2 /* ChessPiece.cpp in Sources */,
 				C44AB27214CBC27200361CC2 /* StatusBar.cpp in Sources */,
+				C44AB29814D244F200361CC2 /* PromotionPiecePicker.cpp in Sources */,
+				C44AB29A14D4E9EA00361CC2 /* details.cpp in Sources */,
+				C44AB29D14D4EC3B00361CC2 /* utils.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

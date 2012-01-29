@@ -11,7 +11,7 @@
 
 #include <SFML/System/Vector3.hpp>
 #include <SFML/System/Vector2.hpp>
-#include <SFML/Graphics.hpp>
+#include <SFML/Graphics/RenderWindow.hpp>
 
 #include <vector>
 #include "ChessBoard.h"
@@ -39,6 +39,8 @@ namespace ChessGame
         
         //returns the possible move location in ChessBoard::BoardSlot position
         virtual std::vector<sf::Vector2i> getPossibleMoveLocation(ChessBoard& gameBoard)const = 0;
+ 
+
         
         //returns the types chess piece
         detail::IChessPieceEnums::PieceType pieceType()const;

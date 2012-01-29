@@ -60,6 +60,7 @@ namespace ChessGame
         
         //returns if the status bar is set to visible
         bool isVisible()const;
+
         //returns the current background color
         sf::Color  getBackgroundColor()const;
         //returns the current text color
