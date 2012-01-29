@@ -8,13 +8,13 @@
 
 #include "Pawn.h"
 #include "ChessPieceImageManager.h"
-
+#include <iostream>
+using namespace std;
 namespace ChessGame {
     
     Pawn::Pawn(){
         m_pieceType = PAWN;
         m_sprite.SetImage(ChessPieceImageManager::getPawnImage());
-        
     }
     
     //draws the chess piece

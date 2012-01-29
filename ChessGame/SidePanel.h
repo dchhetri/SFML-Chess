@@ -9,12 +9,11 @@
 #ifndef ChessGame_SidePanel_h
 #define ChessGame_SidePanel_h
 
+#include <SFML/Graphics.hpp>
 #include <vector>
 #include <boost/shared_ptr.hpp>
+#include <boost/array.hpp>
 #include <SFML/System/Vector2.hpp>
-#include <iostream>
-using namespace std;
-
 namespace ChessGame
 {
     
@@ -22,10 +21,9 @@ namespace ChessGame
     //Kind of like a table with the given width/height dimension to hold
     //a element in each slot, main intention is to be used to show the dead chess
     //pieces of the oppoenents'
-    template<typename T, int HEIGHT, int WIDTH>
+    template<typename T, int HEIGHT, int WIDTH, int CELL_SIZE = 45>
     class SidePanel{
     private:
-        enum { CELL_SIZE = 45 };
        // typedef boost::shared_ptr<ElementType> ElementPtr;
         typedef T ElementType;
         struct PanelSlot{
@@ -40,6 +38,8 @@ namespace ChessGame
         sf::Vector2f m_position;
         sf::Vector2i m_insertIndex;
         sf::Sprite   m_background;
+        bool m_isBackgroundVisible;
+        bool m_isCellsVisible;
     public:
         SidePanel(){
             _initialize();
@@ -100,22 +100,47 @@ namespace ChessGame
             return m_background.GetColor();
         }
         void draw(sf::RenderWindow& canvas)const{
-            for(int i = 0; i < HEIGHT; ++i){
-                for(int j = 0; j < WIDTH; ++j){
-                    if(m_list[i][j].piece.get() != NULL){
-                        m_list[i][j].piece->draw(canvas); 
+            if(m_isBackgroundVisible){
+                canvas.Draw( m_background );
+            }
+            if(m_isCellsVisible)
+            {
+                for(int i = 0; i < HEIGHT; ++i){
+                    for(int j = 0; j < WIDTH; ++j)
+                    {
+                        canvas.Draw(m_list[i][j].sprite);
+    
+                        if(m_list[i][j].piece.get() != NULL){
+                            m_list[i][j].piece->draw(canvas); 
+                        }
+                        
                     }
-                    canvas.Draw(m_list[i][j].sprite);
                 }
             }
-            canvas.Draw( m_background );
         }
         bool isFilled()const{
             return m_insertIndex.x == WIDTH && m_insertIndex.y == HEIGHT;
         }
+        //determines whether to show the background or not
+        void showBackground(bool show){
+            m_isBackgroundVisible = show;
+        }
+        //determines whether to show the cells or not
+        void showCells(bool show){
+            m_isCellsVisible = show;
+        }
+        //returns true if background is currently drawn
+        bool isBackroundVisible()const{
+            return m_isBackgroundVisible;
+        }
+        //returns true if the cells are currently drawn
+        bool isCellsVisible()const{
+            return m_isCellsVisible;
+        }
         //private helper function
     private:
-        void _initialize(){
+        void _initialize()
+        {
             for(int i = 0; i < HEIGHT; ++i){
                 for(int j = 0; j < WIDTH; ++j){
                     m_list[i][j].sprite.SetColor( sf::Color(123,123,123) );
@@ -125,6 +150,8 @@ namespace ChessGame
             }
             m_background.SetColor(sf::Color(200,200,200));
             m_background.Resize((CELL_SIZE ) * HEIGHT, (CELL_SIZE ) * WIDTH);
+            m_isCellsVisible = true;
+            m_isBackgroundVisible = true;
         }
     };
 

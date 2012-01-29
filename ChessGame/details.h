@@ -10,6 +10,8 @@
 #define ChessGame_details_h
 
 
+#include <SFML/Graphics/Sprite.hpp>
+
 namespace ChessGame 
 {
     
@@ -24,6 +26,6 @@ namespace ChessGame
         };
         
     };
-
+    
 }
 #endif

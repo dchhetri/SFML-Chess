@@ -9,7 +9,7 @@
 #ifndef ChessGame_ChessPieceImageManager_h
 #define ChessGame_ChessPieceImageManager_h
 
-#include <SFML/Graphics.hpp>
+#include <SFML/Graphics/Image.hpp>
 #include <boost/array.hpp>
 
 namespace ChessGame 

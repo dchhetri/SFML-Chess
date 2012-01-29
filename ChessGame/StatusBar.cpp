@@ -83,10 +83,9 @@ namespace ChessGame{
     {
         //if visible then draw it
         if(m_isVisible){
-            
-            canvas.Draw(m_statusInfo.messageType);
-            canvas.Draw(m_statusInfo.message);
             canvas.Draw(m_background);
+            canvas.Draw(m_statusInfo.message);
+            canvas.Draw(m_statusInfo.messageType);
         }
     }
     //private helper functions

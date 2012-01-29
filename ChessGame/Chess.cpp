@@ -158,15 +158,18 @@ namespace ChessGame
         if(_isKingChecked(newSlot)){
             _onKingChecked(); 
         }
+        
         //if stalemate alert it
         if(_isStaleMate()){
             _onStaleMate();
         }
+        
         //if promotion possible, promote it
-        if(_shouldPromote(newSlot)){
+        //check if game is not over just for the case when pawn eats the king and 
+        //the pawn is in position to be promoted
+        if(!m_isGameOver && _shouldPromote(newSlot)){
             _onPromotion(newSlot);
-        }
-         
+        } 
     }
     //updates only if current user's piece has been clicked
     void Chess::_onOccupiedEntryClicked(ChessBoard::BoardSlot& entry){
@@ -266,8 +269,30 @@ namespace ChessGame
     void Chess::_onPromotion(ChessBoard::BoardSlot &slot){
         m_statusBar.setStatusType("Current Status: ");
         m_statusBar.setStatusMessage("PROMOTING!");
-        cout << "Promoting\n";
         PromotionPiecePicker picker(app);
+        //waits until user picks one
         detail::IChessPieceEnums::PieceType type = picker.getUserPick();
+        sf::Vector2f pos = slot.piece->getSprite().GetPosition();
+        PiecePtr newPiece;
+        //promote the piece to the choosen one
+        switch (type) {
+            case detail::IChessPieceEnums::KNIGHT:
+                newPiece =  PiecePtr(new Knight() );
+                break;
+            case detail::IChessPieceEnums::BISHOP:
+                newPiece = PiecePtr(new Bishop());
+                break;
+            case detail::IChessPieceEnums::ROOK:
+                newPiece = PiecePtr(new Rook());
+                break;
+            case detail::IChessPieceEnums::QUEEN:
+                newPiece = PiecePtr( new Queen());
+            default:
+                break;
+        }
+        //update new piece position and size
+        newPiece->getSprite().SetPosition(slot.piece->getSprite().GetPosition());
+        newPiece->getSprite().Resize(slot.piece->getSprite().GetSize());
+        slot.piece = newPiece;
     }
 }

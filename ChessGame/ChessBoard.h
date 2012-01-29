@@ -9,8 +9,8 @@
 #ifndef ChessGame_ChessBoard_h
 #define ChessGame_ChessBoard_h
 
-#include <SFML/Window.hpp>
-#include <SFML/Graphics.hpp>
+
+#include <SFML/Graphics/RenderWindow.hpp>
 #include <boost/shared_ptr.hpp>
 #include <boost/array.hpp>
 #include "ChessPiece.h"
@@ -57,6 +57,9 @@ namespace ChessGame
         ChessBoard();
         ChessBoard(PieceSet& whitePieces, PieceSet& blackPieces);
         
+        //set the board position;
+        void setPosition(int x, int y);
+        
         //draws the board given canvas
         void draw(sf::RenderWindow& canvas)const;
 
@@ -100,6 +103,7 @@ namespace ChessGame
         
         //returns the white chess piece set
         const PieceSet& getWhiteSet()const;
+        
         //returns the black chess piece set
         const PieceSet& getBlackSet()const;
     private:
