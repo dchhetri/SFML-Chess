@@ -59,7 +59,7 @@ namespace ChessGame
     }
     
     //handle mouse clicked
-    void Chess::onMouseClicked(int x, int y){
+    void Chess::onMouseClicked(int x, int y){ 
         sf::Vector2i index = m_board.convertToBoardIndex(x, y);
         //if valid index 
         if(index != ChessBoard::BAD_INDEX && !m_isGameOver)

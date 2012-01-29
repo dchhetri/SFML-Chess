@@ -157,10 +157,10 @@
 		C4EC942A14BA64E60027B7B7 /* ChessGame */ = {
 			isa = PBXGroup;
 			children = (
+				C4EC942B14BA64E60027B7B7 /* main.cpp */,
 				C4EC944714BA89460027B7B7 /* Implementation */,
 				C4EC944414BA87440027B7B7 /* Headers */,
 				C4EC944214BA65610027B7B7 /* Utils */,
-				C4EC942B14BA64E60027B7B7 /* main.cpp */,
 				C4EC942D14BA64E60027B7B7 /* ChessGame.1 */,
 			);
 			path = ChessGame;
