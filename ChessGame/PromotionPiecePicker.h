@@ -11,6 +11,7 @@
 
 
 #include "ChessPiece.h"
+#include "details.h"
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <boost/shared_ptr.hpp>
 
@@ -26,8 +27,9 @@ namespace ChessGame
         sf::RenderWindow m_window;  
         const sf::RenderWindow& mainWindow;
         PieceType m_pieceOptions[ROW_SIZE][COL_SIZE];
+        detail::IChessPieceEnums::PieceId m_color;
     public:
-        PromotionPiecePicker(const sf::RenderWindow& mainWindow);
+        PromotionPiecePicker(const sf::RenderWindow& mainWindow, detail::IChessPieceEnums::PieceId color);
         //displays window and returns user's pick
         detail::IChessPieceEnums::PieceType getUserPick();
     private:

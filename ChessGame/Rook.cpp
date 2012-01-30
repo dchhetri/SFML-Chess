@@ -9,10 +9,12 @@
 #include "Rook.h"
 #include "ChessPieceImageManager.h"
 
-namespace ChessGame {
-    Rook::Rook(){
+namespace ChessGame 
+{
+    Rook::Rook(detail::IChessPieceEnums::PieceId color ){
         m_pieceType = ROOK;
-        m_sprite.SetImage(ChessPieceImageManager::getRookImage());
+        m_sprite.SetImage(ChessPieceImageManager::getChessPieceImage(ROOK, color));
+        m_pieceId = color;
     }
     
     //draws the chess piece
@@ -32,6 +34,8 @@ namespace ChessGame {
 
         Vector2i spritePos( int(m_sprite.GetPosition().x),int(m_sprite.GetPosition().y));
         Vector2i slotPos = gameBoard.convertToBoardIndex(spritePos.x,spritePos.y);
+        
+        if(slotPos == ChessBoard::BAD_INDEX) return possibleLocations;
         
         //check north squares
         Vector2i tmp(slotPos.x - 1, slotPos.y );

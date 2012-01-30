@@ -18,7 +18,7 @@ namespace ChessGame
     class Knight : public IChessPiece
     {
     public:
-        Knight();
+         explicit Knight(detail::IChessPieceEnums::PieceId color = detail::IChessPieceEnums::WHITE_PIECE_ID);
         
         //draws the chess piece
         void draw(sf::RenderWindow&)const ;

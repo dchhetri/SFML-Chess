@@ -60,18 +60,23 @@
 		C44AB26A14C6108700361CC2 /* SidePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidePanel.h; sourceTree = "<group>"; };
 		C44AB26F14CBC09C00361CC2 /* StatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBar.h; sourceTree = "<group>"; };
 		C44AB27114CBC27200361CC2 /* StatusBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StatusBar.cpp; sourceTree = "<group>"; };
-		C44AB28414CF8C5F00361CC2 /* ChessSpriteSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ChessSpriteSheet.png; sourceTree = "<group>"; };
-		C44AB28514CF8C5F00361CC2 /* white_bishop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_bishop.png; sourceTree = "<group>"; };
-		C44AB28614CF8C5F00361CC2 /* white_king.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_king.png; sourceTree = "<group>"; };
-		C44AB28714CF8C5F00361CC2 /* white_knight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_knight.png; sourceTree = "<group>"; };
-		C44AB28814CF8C5F00361CC2 /* white_pawn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_pawn.png; sourceTree = "<group>"; };
-		C44AB28914CF8C5F00361CC2 /* white_queen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_queen.png; sourceTree = "<group>"; };
-		C44AB28A14CF8C5F00361CC2 /* white_rook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_rook.png; sourceTree = "<group>"; };
 		C44AB29614D243EF00361CC2 /* PromotionPiecePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromotionPiecePicker.h; sourceTree = "<group>"; };
 		C44AB29714D244F100361CC2 /* PromotionPiecePicker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PromotionPiecePicker.cpp; sourceTree = "<group>"; };
 		C44AB29914D4E9E900361CC2 /* details.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = details.cpp; sourceTree = "<group>"; };
 		C44AB29B14D4EBFD00361CC2 /* utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
 		C44AB29C14D4EC3A00361CC2 /* utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = utils.cpp; sourceTree = "<group>"; };
+		C44AB2AB14D5F24300361CC2 /* whiteRook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteRook.png; sourceTree = "<group>"; };
+		C44AB2AC14D5F24400361CC2 /* whiteQueen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteQueen.png; sourceTree = "<group>"; };
+		C44AB2AD14D5F24400361CC2 /* whitePawn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whitePawn.png; sourceTree = "<group>"; };
+		C44AB2AE14D5F24500361CC2 /* whiteKnight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteKnight.png; sourceTree = "<group>"; };
+		C44AB2AF14D5F24600361CC2 /* whiteKing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteKing.png; sourceTree = "<group>"; };
+		C44AB2B014D5F24700361CC2 /* whiteBishop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteBishop.png; sourceTree = "<group>"; };
+		C44AB2B214D5F25700361CC2 /* blackRook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackRook.png; sourceTree = "<group>"; };
+		C44AB2B314D5F25800361CC2 /* blackQueen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackQueen.png; sourceTree = "<group>"; };
+		C44AB2B414D5F25900361CC2 /* blackPawn.png */ = {isa = PBXFileReference; path = blackPawn.png; sourceTree = "<group>"; };
+		C44AB2B514D5F25A00361CC2 /* blackKnight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackKnight.png; sourceTree = "<group>"; };
+		C44AB2B614D5F25C00361CC2 /* blackKing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackKing.png; sourceTree = "<group>"; };
+		C44AB2B714D5F25D00361CC2 /* blackBishop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackBishop.png; sourceTree = "<group>"; };
 		C4EC942714BA64E60027B7B7 /* ChessGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ChessGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4EC942B14BA64E60027B7B7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C4EC942D14BA64E60027B7B7 /* ChessGame.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ChessGame.1; sourceTree = "<group>"; };
@@ -116,24 +121,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C44AB28314CF8C5F00361CC2 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				C44AB28414CF8C5F00361CC2 /* ChessSpriteSheet.png */,
-				C44AB28514CF8C5F00361CC2 /* white_bishop.png */,
-				C44AB28614CF8C5F00361CC2 /* white_king.png */,
-				C44AB28714CF8C5F00361CC2 /* white_knight.png */,
-				C44AB28814CF8C5F00361CC2 /* white_pawn.png */,
-				C44AB28914CF8C5F00361CC2 /* white_queen.png */,
-				C44AB28A14CF8C5F00361CC2 /* white_rook.png */,
-			);
-			path = Images;
-			sourceTree = "<group>";
-		};
 		C4EC941C14BA64E60027B7B7 = {
 			isa = PBXGroup;
 			children = (
-				C44AB28314CF8C5F00361CC2 /* Images */,
 				C4EC944014BA652C0027B7B7 /* OpenGL.framework */,
 				C4EC943414BA64FE0027B7B7 /* SFML.framework */,
 				C4EC943514BA64FE0027B7B7 /* sfml-window.framework */,
@@ -157,7 +147,22 @@
 		C4EC942A14BA64E60027B7B7 /* ChessGame */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				C4EC942B14BA64E60027B7B7 /* main.cpp */,
+=======
+				C44AB2B214D5F25700361CC2 /* blackRook.png */,
+				C44AB2B314D5F25800361CC2 /* blackQueen.png */,
+				C44AB2B414D5F25900361CC2 /* blackPawn.png */,
+				C44AB2B514D5F25A00361CC2 /* blackKnight.png */,
+				C44AB2B614D5F25C00361CC2 /* blackKing.png */,
+				C44AB2B714D5F25D00361CC2 /* blackBishop.png */,
+				C44AB2AB14D5F24300361CC2 /* whiteRook.png */,
+				C44AB2AC14D5F24400361CC2 /* whiteQueen.png */,
+				C44AB2AD14D5F24400361CC2 /* whitePawn.png */,
+				C44AB2AE14D5F24500361CC2 /* whiteKnight.png */,
+				C44AB2AF14D5F24600361CC2 /* whiteKing.png */,
+				C44AB2B014D5F24700361CC2 /* whiteBishop.png */,
+>>>>>>> developing_branch
 				C4EC944714BA89460027B7B7 /* Implementation */,
 				C4EC944414BA87440027B7B7 /* Headers */,
 				C4EC944214BA65610027B7B7 /* Utils */,
@@ -344,6 +349,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Library/Frameworks\"",
 				);
+				GCC_WARN_PEDANTIC = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -355,6 +361,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Library/Frameworks\"",
 				);
+				GCC_WARN_PEDANTIC = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -10,43 +10,24 @@
 #define ChessGame_ChessPieceImageManager_h
 
 #include <SFML/Graphics/Image.hpp>
-#include <boost/array.hpp>
-
+#include "details.h"
 namespace ChessGame 
 {
     
     //Defines a class to cache chess piece image 
     class ChessPieceImageManager{
     private:
-        enum{ PAWN, KNIGHT, BISHOP, ROOK, QUEEN, KING, BACKGROUND_IMAGE, LIST_SIZE};
-        typedef boost::array< sf::Image , LIST_SIZE > ChessPieceList;
+        enum{ NUM_OF_PIECES = 6};
+        enum{ NUM_OF_COLORS = 2};
+        typedef sf::Image ChessPieceList[NUM_OF_PIECES][NUM_OF_COLORS];
     private:
         //holds the chess piece images
         static ChessPieceList imageList;
     public:
         //loads images, only needed to be called once
         static void initialize();
-        
-        //returns the pawn image
-        static const sf::Image& getPawnImage();
-        
-        //returns the knight image
-        static const sf::Image& getKnightImage();
-        
-        //returns the bishop image
-        static const sf::Image& getBishopImage();
-        
-        //returns the rook image
-        static const sf::Image& getRookImage();
-        
-        //returns the queen image
-        static const sf::Image& getQueenImage();
-        
-        //returns the king image
-        static const sf::Image& getKingImage();
-        
-        //returns the background image for the game
-        static const sf::Image& getChessGameBackgroundImage();
+        //returns the specified piece
+        static const sf::Image& getChessPieceImage(detail::IChessPieceEnums::PieceType, detail::IChessPieceEnums::PieceId);
     };
 
 }

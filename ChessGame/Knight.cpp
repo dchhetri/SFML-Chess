@@ -9,10 +9,12 @@
 #include "Knight.h"
 #include "ChessPieceImageManager.h"
 
-namespace ChessGame {
-    Knight::Knight(){
+namespace ChessGame 
+{
+    Knight::Knight(detail::IChessPieceEnums::PieceId color ){
         m_pieceType = KNIGHT;
-        m_sprite.SetImage(ChessPieceImageManager::getKnightImage());
+        m_sprite.SetImage(ChessPieceImageManager::getChessPieceImage(KNIGHT, color));
+        m_pieceId = color;
     }
     //draws the chess piece
     void Knight::draw(sf::RenderWindow& canvas)const{

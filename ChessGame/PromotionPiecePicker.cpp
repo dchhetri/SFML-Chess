@@ -19,14 +19,17 @@
 using namespace std;
 namespace ChessGame 
 {
-    PromotionPiecePicker::PromotionPiecePicker(const sf::RenderWindow& window): mainWindow(window){
+    PromotionPiecePicker::PromotionPiecePicker(const sf::RenderWindow& window,
+                                               detail::IChessPieceEnums::PieceId color)
+    : mainWindow(window), m_color(color)
+    {
         m_window.Create(sf::VideoMode(150,150), "Promition Picker");
         m_window.SetFramerateLimit(60);
         
-        m_pieceOptions[0][0] = PieceType(new Knight());
-        m_pieceOptions[0][1] = PieceType(new Rook());
-        m_pieceOptions[1][0] = PieceType(new Bishop());
-        m_pieceOptions[1][1] = PieceType(new Queen());
+        m_pieceOptions[0][0] = PieceType(new Knight(color));
+        m_pieceOptions[0][1] = PieceType(new Rook(color));
+        m_pieceOptions[1][0] = PieceType(new Bishop(color));
+        m_pieceOptions[1][1] = PieceType(new Queen(color));
         
         const int CELL_SIZE = 50;
         int offset = 20;

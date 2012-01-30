@@ -8,6 +8,7 @@
 
 #include "ChessBoard.h"
 #include "ChessPieceImageManager.h"
+#include "utils.h"
 #include <cassert>
 #include <iostream>
 using namespace std;
@@ -124,8 +125,8 @@ namespace ChessGame
     
     //returns true if the window  coordinates is inside the board
     bool ChessBoard::contains(int winX, int winY)const{
-        return  winX > m_position.x && winX < m_position.x + BOARD_WIDTH * CELL_SIZE
-                && winY > m_position.y && winY < m_position.y + BOARD_WIDTH * CELL_SIZE;
+        return  winX >= m_position.x && winX <= m_position.x + BOARD_WIDTH * CELL_SIZE
+                && winY >= m_position.y && winY <= m_position.y + BOARD_WIDTH * CELL_SIZE;
     }
 
     sf::Vector2i ChessBoard::convertToBoardIndex(int winX, int winY)const{

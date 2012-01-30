@@ -12,9 +12,10 @@
 using namespace std;
 namespace ChessGame {
     
-    Pawn::Pawn(){
+    Pawn::Pawn(detail::IChessPieceEnums::PieceId color ){
         m_pieceType = PAWN;
-        m_sprite.SetImage(ChessPieceImageManager::getPawnImage());
+        m_sprite.SetImage(ChessPieceImageManager::getChessPieceImage(PAWN, color));
+        m_pieceId = color;
     }
     
     //draws the chess piece
