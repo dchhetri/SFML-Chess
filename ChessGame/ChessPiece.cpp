@@ -7,7 +7,7 @@
 //
 
 #include "ChessPiece.h"
-
+#include "ChessPieceImageManager.h"
 
 namespace ChessGame 
 {
@@ -36,6 +36,8 @@ namespace ChessGame
     //set the current piece id
     void IChessPiece::setPieceID(const detail::IChessPieceEnums::PieceId& id){
         m_pieceId = id;
+        //update image to accomidate the new id(i.e black or white )
+        m_sprite.SetImage(ChessPieceImageManager::getChessPieceImage(m_pieceType, m_pieceId));
     }
     //get the current piece id
     detail::IChessPieceEnums::PieceId IChessPiece::getPieceID()const{

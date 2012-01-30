@@ -11,9 +11,10 @@
 
 namespace ChessGame 
 {
-    Queen::Queen(){
+    Queen::Queen(detail::IChessPieceEnums::PieceId color ){
         m_pieceType = QUEEN;
-        m_sprite.SetImage(ChessPieceImageManager::getQueenImage());
+        m_sprite.SetImage(ChessPieceImageManager::getChessPieceImage(QUEEN, color));        
+        m_pieceId = color;
     }
     
     //draws the chess piece

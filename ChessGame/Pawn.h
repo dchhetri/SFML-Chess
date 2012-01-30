@@ -11,6 +11,7 @@
 
 #include "ChessBoard.h"
 #include "ChessPiece.h"
+#include "details.h"
 
 namespace ChessGame
 {
@@ -18,8 +19,7 @@ namespace ChessGame
     {
         
     public:
-        Pawn();
-        
+        explicit Pawn(detail::IChessPieceEnums::PieceId color = detail::IChessPieceEnums::WHITE_PIECE_ID);
         //draws the chess piece
         void draw(sf::RenderWindow&)const ;
         

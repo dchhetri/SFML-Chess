@@ -45,7 +45,7 @@ namespace ChessGame
         typedef boost::array< PiecePtr, 16 > PieceSet;
         typedef boost::array< boost::array<BoardSlot, BOARD_WIDTH>, BOARD_HEIGHT > BoardType;
         typedef std::vector< sf::Vector2i > HighlightedList;
-        enum{SPRITE_SIZE = int(CELL_SIZE*0.75)};
+        enum{SPRITE_SIZE = 38};
      private:
         BoardType m_board;
         sf::Sprite m_background;

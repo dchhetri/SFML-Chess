@@ -101,35 +101,30 @@ namespace ChessGame
             blackPieces[i] = boost::shared_ptr<IChessPiece>(new Pawn());
         }
         //insert other piece manually
-        whitePieces[0] = boost::shared_ptr<IChessPiece>(new Rook());
-        whitePieces[1] = boost::shared_ptr<IChessPiece>(new Knight());
-        whitePieces[2] = boost::shared_ptr<IChessPiece>(new Bishop());
-        whitePieces[3] = boost::shared_ptr<IChessPiece>(new King());
-        whitePieces[4] = boost::shared_ptr<IChessPiece>(new Queen());
-        whitePieces[5] = boost::shared_ptr<IChessPiece>(new Bishop());
-        whitePieces[6] = boost::shared_ptr<IChessPiece>(new Knight());
-        whitePieces[7] = boost::shared_ptr<IChessPiece>(new Rook());
+        whitePieces[0] = boost::shared_ptr<IChessPiece>(new Rook(detail::IChessPieceEnums::WHITE_PIECE_ID));
+        whitePieces[1] = boost::shared_ptr<IChessPiece>(new Knight(detail::IChessPieceEnums::WHITE_PIECE_ID));
+        whitePieces[2] = boost::shared_ptr<IChessPiece>(new Bishop(detail::IChessPieceEnums::WHITE_PIECE_ID));
+        whitePieces[3] = boost::shared_ptr<IChessPiece>(new Queen(detail::IChessPieceEnums::WHITE_PIECE_ID));
+        whitePieces[4] = boost::shared_ptr<IChessPiece>(new King(detail::IChessPieceEnums::WHITE_PIECE_ID));        
+        whitePieces[5] = boost::shared_ptr<IChessPiece>(new Bishop(detail::IChessPieceEnums::WHITE_PIECE_ID));
+        whitePieces[6] = boost::shared_ptr<IChessPiece>(new Knight(detail::IChessPieceEnums::WHITE_PIECE_ID));
+        whitePieces[7] = boost::shared_ptr<IChessPiece>(new Rook(detail::IChessPieceEnums::WHITE_PIECE_ID));
         
         
-        blackPieces[0 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Rook());
-        blackPieces[1 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Knight());
-        blackPieces[2 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Bishop());
-        blackPieces[3 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new King());
-        blackPieces[4 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Queen());
-        blackPieces[5 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Bishop());
-        blackPieces[6 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Knight());
-        blackPieces[7 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Rook());
+        blackPieces[0 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Rook(detail::IChessPieceEnums::BLACK_PIECE_ID));
+        blackPieces[1 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Knight(detail::IChessPieceEnums::BLACK_PIECE_ID));
+        blackPieces[2 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Bishop(detail::IChessPieceEnums::BLACK_PIECE_ID));
+        blackPieces[3 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Queen(detail::IChessPieceEnums::BLACK_PIECE_ID));
+        blackPieces[4 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new King(detail::IChessPieceEnums::BLACK_PIECE_ID));
+        blackPieces[5 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Bishop(detail::IChessPieceEnums::BLACK_PIECE_ID));
+        blackPieces[6 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Knight(detail::IChessPieceEnums::BLACK_PIECE_ID));
+        blackPieces[7 + ChessBoard::BOARD_WIDTH] = boost::shared_ptr<IChessPiece>(new Rook(detail::IChessPieceEnums::BLACK_PIECE_ID));
         
-        //set id
-        for(int i = 0; i < m_whiteUser.second.size(); ++i){
-            whitePieces[i]->setPieceID(detail::IChessPieceEnums::WHITE_PIECE_ID);
-            blackPieces[i]->setPieceID(detail::IChessPieceEnums::BLACK_PIECE_ID);
-        }
         
         m_board.populate(whitePieces, blackPieces);
         
         m_leftWhiteUserPanel.setPosition(sf::Vector2f(25,100));
-        m_righBlackUsertPanel.setPosition(sf::Vector2f(675 , 100));
+        m_righBlackUsertPanel.setPosition(sf::Vector2f(675,100));
         
         m_righBlackUsertPanel.setBackgoundColor(m_leftWhiteUserPanel.getCellColor());
         m_righBlackUsertPanel.setCellColor(m_leftWhiteUserPanel.getBackgroundColor());
@@ -269,7 +264,7 @@ namespace ChessGame
     void Chess::_onPromotion(ChessBoard::BoardSlot &slot){
         m_statusBar.setStatusType("Current Status: ");
         m_statusBar.setStatusMessage("PROMOTING!");
-        PromotionPiecePicker picker(app);
+        PromotionPiecePicker picker(app, slot.piece->getPieceID());
         //waits until user picks one
         detail::IChessPieceEnums::PieceType type = picker.getUserPick();
         sf::Vector2f pos = slot.piece->getSprite().GetPosition();
@@ -277,16 +272,16 @@ namespace ChessGame
         //promote the piece to the choosen one
         switch (type) {
             case detail::IChessPieceEnums::KNIGHT:
-                newPiece =  PiecePtr(new Knight() );
+                newPiece =  PiecePtr(new Knight(slot.piece->getPieceID()) );
                 break;
             case detail::IChessPieceEnums::BISHOP:
-                newPiece = PiecePtr(new Bishop());
+                newPiece = PiecePtr(new Bishop(slot.piece->getPieceID()));
                 break;
             case detail::IChessPieceEnums::ROOK:
-                newPiece = PiecePtr(new Rook());
+                newPiece = PiecePtr(new Rook(slot.piece->getPieceID()));
                 break;
             case detail::IChessPieceEnums::QUEEN:
-                newPiece = PiecePtr( new Queen());
+                newPiece = PiecePtr( new Queen(slot.piece->getPieceID()));
             default:
                 break;
         }

@@ -8,20 +8,6 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "ChessGame/Chess.cpp"
-         timestampString = "349500476.482116"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "232"
-         endingLineNumber = "232"
-         landmarkName = "Chess::_shouldPromote(ChessBoard::BoardSlot&amp; slot)"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
          filePath = "ChessGame/PromitionPiecePicker.cpp"
          timestampString = "349331245.902503"
          startingColumnNumber = "9223372036854775807"
@@ -29,6 +15,20 @@
          startingLineNumber = "22"
          endingLineNumber = "22"
          landmarkName = "PromotionPiecePicker::getUserPick()"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "ChessGame/Rook.cpp"
+         timestampString = "349571847.08674"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "32"
+         endingLineNumber = "32"
+         landmarkName = "Rook::getPossibleMoveLocation(ChessBoard&amp; gameBoard)"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

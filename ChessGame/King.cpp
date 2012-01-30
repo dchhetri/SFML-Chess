@@ -12,9 +12,10 @@
 namespace ChessGame 
 {
     
-    King::King(){
+    King::King(detail::IChessPieceEnums::PieceId color ){
         m_pieceType = KING;
-        m_sprite.SetImage(ChessPieceImageManager::getKingImage());
+        m_sprite.SetImage(ChessPieceImageManager::getChessPieceImage(KING, color));        
+        m_pieceId = color;
     }
 
     //draws the chess piece

@@ -17,7 +17,7 @@ namespace ChessGame
     class Rook : public IChessPiece
     {
     public:
-        Rook();
+        explicit Rook(detail::IChessPieceEnums::PieceId color = detail::IChessPieceEnums::WHITE_PIECE_ID);        
         
         //draws the chess piece
         void draw(sf::RenderWindow&)const ;

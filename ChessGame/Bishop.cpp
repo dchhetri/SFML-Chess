@@ -11,9 +11,9 @@
 
 namespace ChessGame 
 {
-    Bishop::Bishop(){
+    Bishop::Bishop(detail::IChessPieceEnums::PieceId color ){
         m_pieceType = BISHOP;
-        m_sprite.SetImage(ChessPieceImageManager::getBishopImage());
+        m_sprite.SetImage(ChessPieceImageManager::getChessPieceImage(BISHOP, color));        
     }
     //draws the chess piece
     void Bishop::draw(sf::RenderWindow& canvas)const{
